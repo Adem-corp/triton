@@ -1,9 +1,16 @@
 @font-face {
 	font-weight: normal;
-	font-family: FontName;
+	font-family: BebasNeueCyrillic;
 	font-style: normal;
-	src:
-		url(assets/fonts/FontName.woff2) format("woff2"),
-		url(assets/fonts/FontName.woff) format("woff");
+	src: url(assets/fonts/BebasNeueCyrillic.woff2) format("woff2"),
+	url(assets/fonts/BebasNeueCyrillic.woff) format("woff");
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 200 800;
+	font-family: Manrope;
+	font-style: normal;
+	src: url(assets/fonts/Manrope-VariableFont_wght.woff2) format("woff2");
 	font-display: swap;
 }
