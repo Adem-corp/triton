@@ -188,9 +188,32 @@ function sendForms() {
 	});
 }
 
+function showSearchForm() {
+	const buttons = document.querySelectorAll('.js-search-btn');
+	const form = document.querySelector('#searchform');
+
+	buttons.forEach(function (button) {
+		const icon = button.querySelector('use');
+		const iconHref = icon.getAttribute('xlink:href');
+		const iconHrefClose = iconHref.replace('i-search', 'i-close');
+
+		button.addEventListener('click', function (e) {
+			form.classList.toggle('active');
+			button.classList.toggle('active');
+
+			if (button.classList.contains('active')) {
+				icon.setAttribute('xlink:href', iconHrefClose);
+			} else {
+				icon.setAttribute('xlink:href', iconHref);
+			}
+		});
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
 	setTelMask();
+	showSearchForm();
 	sendForms();
 });

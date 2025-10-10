@@ -1,0 +1,15 @@
+@use "../helpers" as *;
+
+.social {
+	display: flex;
+	gap: 4px;
+	align-items: center;
+
+	&__link {
+		text-decoration: none;
+	}
+
+	&__icon {
+		display: block;
+	}
+}

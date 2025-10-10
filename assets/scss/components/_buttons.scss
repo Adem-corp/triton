@@ -1,3 +1,15 @@
+@use "../helpers" as *;
+
 .btn {
 
+}
+
+.square-btn {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	background: none;
+	border: none;
 }

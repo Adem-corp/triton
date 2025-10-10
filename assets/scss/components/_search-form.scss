@@ -1,0 +1,21 @@
+@use "../helpers" as *;
+
+.search-form {
+	position: relative;
+
+	&:not(.active) {
+		display: none;
+	}
+
+	&__input {
+		padding-right: 50px;
+	}
+
+	&__btn {
+		position: absolute;
+		top: 50%;
+		right: 25px;
+		color: var(--color-white);
+		transform: translateY(-50%);
+	}
+}

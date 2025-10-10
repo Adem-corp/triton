@@ -1,3 +1,82 @@
-.header {
+@use "../helpers" as *;
 
+.header {
+	position: absolute;
+	top: 15px;
+	right: 0;
+	left: 0;
+	min-width: 360px;
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 5px;
+	}
+
+	&__col {
+		display: flex;
+		align-items: center;
+		background-color: var(--color-white);
+		border-radius: 10px;
+		@include mob {
+			padding-inline: 10px;
+		}
+	}
+
+	&__main {
+		padding-inline: 30px 15px;
+		@include laptop {
+			gap: 30px;
+		}
+		@include laptop-sm {
+			padding-inline: 15px;
+		}
+		@include tablet {
+			gap: 10px;
+		}
+	}
+
+	&__l-img {
+		display: block;
+	}
+
+	&__menu {
+		flex: 1 0;
+		@include from(1441px) {
+			margin-inline: 85px 65px;
+		}
+	}
+
+	&__search-btn {
+		@include tablet {
+			margin-left: auto;
+		}
+	}
+
+	&__burger-btn {
+		@include from(1025px) {
+			display: none;
+		}
+	}
+
+	&__contacts {
+		gap: 10px;
+		padding: 10px 15px;
+	}
+
+	&__tel {
+		font-weight: 700;
+		font-size: 14px;
+		text-decoration: none;
+	}
+
+	&__social {
+		flex-wrap: wrap;
+		max-width: 50px;
+	}
+
+	&__search-form {
+		margin-top: 5px;
+		padding: 5px;
+	}
 }

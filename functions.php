@@ -74,6 +74,7 @@ function adem_change_excerpt_more() {
 
 require 'inc/acf.php';
 require 'inc/mail.php';
+require 'inc/menu.php';
 require 'inc/rest.php';
 require 'inc/svg.php';
 require 'inc/theme-functions.php';
