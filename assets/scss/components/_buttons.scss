@@ -13,3 +13,31 @@
 	background: none;
 	border: none;
 }
+
+.submit-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 70px;
+	padding: 1px;
+	font-size: 32px;
+	font-family: var(--font-secondary), sans-serif;
+	text-align: left;
+	background-color: var(--color-white);
+	border: none;
+	border-radius: 10px;
+
+	&__text {
+		padding-inline: 25px;
+	}
+
+	&__icon {
+		display: grid;
+		place-items: center;
+		width: 68px;
+		height: 100%;
+		color: #fff;
+		background-color: var(--color-main);
+		border-radius: inherit;
+	}
+}

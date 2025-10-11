@@ -134,3 +134,15 @@
 		}
 	}
 }
+
+.menu-footer {
+	display: grid;
+	gap: 14px;
+
+	a {
+		text-decoration: none;
+		@include hover {
+			color: var(--color-accent);
+		}
+	}
+}

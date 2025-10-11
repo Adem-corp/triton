@@ -1,0 +1,21 @@
+@use "../helpers" as *;
+
+.title {
+	margin: 0;
+	font-weight: 400;
+	font-family: var(--font-secondary), sans-serif;
+	line-height: 1;
+}
+
+h2.title {
+	font-size: 75px;
+	@include tablet {
+		font-size: 60px;
+	}
+	@include tablet-sm {
+		font-size: 48px;
+	}
+	@include mob {
+		font-size: 36px;
+	}
+}

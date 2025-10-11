@@ -29,7 +29,10 @@ function adem_theme_setup() {
 
 register_nav_menus(
 	array(
-		'menu_main' => 'Основное меню',
+		'menu_main'     => 'Основное меню',
+		'menu_clients'  => 'Клиентам',
+		'menu_partners' => 'Партнерам',
+		'menu_test'     => 'Партнерам',
 	)
 );
 

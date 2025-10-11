@@ -49,8 +49,9 @@ $option_social = get_field( 'social', 'option' );
 			</button>
 		</div>
 		<div class="header__col header__contacts">
+			<!--			TODO tel dropdown-->
 			<?php if ( $option_tel && count( $option_tel ) ) : ?>
-				<a href="<?php echo esc_url( adem_clear_tel( $option_tel[0]['number'] ) ); ?>" class="header__tel"><?php echo esc_html( $option_tel[0]['number'] ); ?></a>
+				<a href="<?php echo esc_url( 'tel:' . adem_clear_tel( $option_tel[0]['number'] ) ); ?>" class="header__tel"><?php echo esc_html( $option_tel[0]['number'] ); ?></a>
 			<?php endif; ?>
 			<?php if ( $option_social ) : ?>
 				<ul class="reset-list social header__social">
