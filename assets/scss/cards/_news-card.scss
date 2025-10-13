@@ -1,0 +1,76 @@
+@use "../helpers" as *;
+
+.news-card {
+	display: flex;
+	gap: 15px;
+	text-decoration: none;
+	@include mob {
+		flex-direction: column;
+	}
+	@include hover {
+
+		.news-card__title {
+			color: var(--color-accent);
+		}
+	}
+
+	&__img {
+		object-fit: cover;
+		border-radius: 10px;
+		@include from-to(577px, 1440px) {
+			max-width: 50%;
+		}
+		@include tablet {
+			width: 280px;
+		}
+		@include mob {
+			width: 100%;
+			max-height: 70vw;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__date {
+		color: #7D7D7D;
+		font-size: 14px;
+		@include mob {
+			display: flex;
+			gap: 5px;
+			align-items: flex-end;
+		}
+	}
+
+	&__d {
+		display: block;
+		color: var(--color-accent);
+		font-size: 75px;
+		font-family: var(--font-secondary), sans-serif;
+		line-height: 0.85;
+		@include mob {
+			font-size: 30px;
+		}
+	}
+
+	&__my {
+		display: block;
+		margin-top: 10px;
+	}
+
+	&__title {
+		margin-top: auto;
+		font-size: 24px;
+		font-family: var(--font-secondary), sans-serif;
+		line-height: 1;
+		transition: all 0.3s ease-in-out;
+	}
+
+	&__text {
+		color: #7D7D7D;
+		font-size: 14px;
+	}
+}

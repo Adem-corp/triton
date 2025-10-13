@@ -11,33 +11,35 @@ $articles    = get_sub_field( 'posts' );
 ?>
 
 <section class="articles">
-	<div class="container">
-		<?php if ( $block_title ) : ?>
-			<h2 class="title articles__title"><?php echo wp_kses_post( $block_title ); ?></h2>
-		<?php endif; ?>
-		<?php if ( $articles ) : ?>
-			<div class="articles__body">
-				<div class="swiper">
-					<div class="swiper-wrapper">
-						<?php
-						foreach ( $articles as $post ) {
-							setup_postdata( $post );
+	<div class="articles__wrap">
+		<div class="container">
+			<?php if ( $block_title ) : ?>
+				<h2 class="title articles__title"><?php echo wp_kses_post( $block_title ); ?></h2>
+			<?php endif; ?>
+			<?php if ( $articles ) : ?>
+				<div class="articles__body">
+					<div class="swiper">
+						<div class="swiper-wrapper">
+							<?php
+							foreach ( $articles as $post ) {
+								setup_postdata( $post );
 
-							get_template_part(
-								'layouts/cards/post-card',
-								null,
-								array(
-									'class' => 'swiper-slide',
-								)
-							);
-						}
+								get_template_part(
+									'layouts/cards/post-card',
+									null,
+									array(
+										'class' => 'swiper-slide',
+									)
+								);
+							}
 
-						wp_reset_postdata();
-						?>
+							wp_reset_postdata();
+							?>
+						</div>
 					</div>
+					<div class="swiper-pagination"></div>
 				</div>
-				<div class="swiper-pagination"></div>
-			</div>
-		<?php endif; ?>
+			<?php endif; ?>
+		</div>
 	</div>
 </section>

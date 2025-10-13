@@ -1,8 +1,7 @@
 @use "../helpers" as *;
 
 .articles {
-	overflow: hidden;
-	background-image: linear-gradient(120deg, #fff 0%, #b1e7ff 100%);
+	position: relative;
 	border-radius: var(--section-border-radius);
 	margin-block: 10px;
 	padding-block: 80px;
@@ -13,8 +12,26 @@
 		padding-block: 30px;
 	}
 
+	&::after {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 100%;
+		background-image: radial-gradient(circle at 100% 100%, #b1e7ff 0%, #fff 75%);
+		border-radius: inherit;
+		content: "";
+	}
+
+	&__wrap {
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+	}
 
 	&__title {
+		position: relative;
+		z-index: 1;
 		margin-bottom: 30px;
 		@include mob {
 			margin-bottom: 15px;
