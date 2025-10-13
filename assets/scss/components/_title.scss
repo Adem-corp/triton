@@ -5,10 +5,17 @@
 	font-weight: 400;
 	font-family: var(--font-secondary), sans-serif;
 	line-height: 1;
+
+	span {
+		color: var(--color-accent);
+	}
 }
 
 h2.title {
 	font-size: 75px;
+	@include laptop-sm {
+		font-size: 68px;
+	}
 	@include tablet {
 		font-size: 60px;
 	}

@@ -147,15 +147,17 @@ function adem_send_mail() {
 		exit;
 	}
 
-	$mail    = isset( $_POST['name'] ) ? 'Имя: ' . sanitize_text_field( wp_unslash( $_POST['name'] ) ) . '<br/>' : '';
-	$tel     = isset( $_POST['tel'] ) ? sanitize_text_field( wp_unslash( $_POST['tel'] ) ) : null;
-	$email   = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : null;
-	$message = isset( $_POST['message'] ) ? sanitize_text_field( wp_unslash( $_POST['message'] ) ) : null;
-	$order   = isset( $_POST['order'] ) ? sanitize_text_field( wp_unslash( $_POST['order'] ) ) : null;
-	$referer = isset( $_POST['_wp_http_referer'] ) ? sanitize_text_field( wp_unslash( $_POST['_wp_http_referer'] ) ) : null;
+	$mail     = isset( $_POST['name'] ) ? 'Имя: ' . sanitize_text_field( wp_unslash( $_POST['name'] ) ) . '<br/>' : '';
+	$tel      = isset( $_POST['tel'] ) ? sanitize_text_field( wp_unslash( $_POST['tel'] ) ) : null;
+	$position = isset( $_POST['position'] ) ? sanitize_text_field( wp_unslash( $_POST['position'] ) ) : null;
+	$email    = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : null;
+	$message  = isset( $_POST['message'] ) ? sanitize_text_field( wp_unslash( $_POST['message'] ) ) : null;
+	$order    = isset( $_POST['order'] ) ? sanitize_text_field( wp_unslash( $_POST['order'] ) ) : null;
+	$referer  = isset( $_POST['_wp_http_referer'] ) ? sanitize_text_field( wp_unslash( $_POST['_wp_http_referer'] ) ) : null;
 
 	$mail .= isset( $tel ) ? 'Телефон: <a href="tel:' . adem_clear_tel( $tel ) . '">' . $tel . '</a><br/>' : '';
 	$mail .= isset( $email ) ? 'Email: <a href="mailto:' . $email . '">' . $email . '</a><br/>' : '';
+	$mail .= isset( $position ) ? 'Должность: ' . $position . '<br/>' : '';
 	$mail .= isset( $message ) ? 'Сообщение: ' . $message . '<br/>' : '';
 	$mail .= ! empty( $order ) ? 'Заказ: ' . $order . '<br/>' : '';
 	$mail .= isset( $referer ) ? 'Страница: ' . $referer . '<br/>' : '';
@@ -246,7 +248,7 @@ function adem_change_mail_email(): string {
  * 2. If typing speed data is empty and time on page < 5 seconds → flagged as bots.
  * 3. If typing intervals are too uniform (difference < 10 ms across > 5 keystrokes) → flagged as bots.
  *
- * @param int $time_on_page Time spent on the page in milliseconds.
+ * @param int    $time_on_page Time spent on the page in milliseconds.
  * @param string $typing_speed_json JSON-encoded array of typing intervals in milliseconds.
  *
  * @return bool True if the submission is considered suspicious (likely bot), false otherwise.

@@ -4,7 +4,7 @@
 	padding: 2px;
 	color: #fff;
 	background-color: #fff;
-	border-radius: 40px;
+	border-radius: var(--section-border-radius);
 
 	&__wrap {
 		background-color: #000;
@@ -16,6 +16,9 @@
 		padding-block: 95px 40px;
 		@include laptop-sm {
 			padding-top: 60px;
+		}
+		@include tablet-sm {
+			padding-block: 30px;
 		}
 	}
 

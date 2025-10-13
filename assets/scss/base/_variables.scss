@@ -1,3 +1,5 @@
+@use "../helpers" as *;
+
 :root {
 	// COLORS
 	--color-main: #242328;
@@ -8,4 +10,11 @@
 	// FONTS
 	--font-primary: "Manrope";
 	--font-secondary: "BebasNeueCyrillic";
+
+	// LAYOUT
+	--section-border-radius: 40px;
+
+	@include tablet-sm {
+		--section-border-radius: 20px;
+	}
 }

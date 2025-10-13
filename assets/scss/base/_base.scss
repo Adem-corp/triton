@@ -26,6 +26,9 @@ body {
 	font-size: 16px;
 	font-family: var(--font-primary), sans-serif;
 	background-color: #000;
+	@include to(1610px) {
+		margin-inline: 5px;
+	}
 }
 
 h1,
