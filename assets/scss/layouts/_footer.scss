@@ -12,7 +12,7 @@
 		background-repeat: no-repeat;
 		background-position: center top;
 		background-size: cover;
-		border-radius: inherit;
+		border-radius: var(--section-border-radius);
 		padding-block: 95px 40px;
 		@include laptop-sm {
 			padding-top: 60px;

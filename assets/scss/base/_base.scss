@@ -155,3 +155,8 @@ address {
 		margin-left: 0.75rem;
 	}
 }
+
+.swiper-pagination {
+	--swiper-pagination-color: var(--color-gold);
+	position: static;
+}

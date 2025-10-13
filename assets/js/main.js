@@ -210,8 +210,25 @@ function showSearchForm() {
 	});
 }
 
+function initArticlesSlider() {
+	const section = document.querySelector('.articles');
+
+	if (!section) return;
+
+	const swiper = new Swiper(section.querySelector('.swiper'), {
+		slidesPerView: 'auto',
+		spaceBetween: 20,
+		pagination: {
+			el: section.querySelector('.swiper-pagination'),
+			type: 'progressbar',
+		},
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
+
+	initArticlesSlider();
 
 	setTelMask();
 	showSearchForm();
