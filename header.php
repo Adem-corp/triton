@@ -81,3 +81,6 @@ $option_social = get_field( 'social', 'option' );
 	</form>
 </header>
 <main class="main">
+	<?php if ( is_front_page() ) {
+		get_template_part( 'layouts/partials/main-hero' );
+	} ?>

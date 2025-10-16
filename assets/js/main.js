@@ -225,10 +225,62 @@ function initArticlesSlider() {
 	});
 }
 
+function initMainHeroSlider() {
+	const section = document.querySelector('.main-hero');
+
+	if (!section) return;
+
+	const swiper = new Swiper(section.querySelector('.swiper'), {
+		slidesPerView: 1,
+		spaceBetween: 0,
+		loop: true,
+		effect: 'creative',
+		allowTouchMove: false,
+		speed: 2000,
+		autoplay: {
+			delay: 6000
+		},
+		creativeEffect: {
+			prev: {
+				opacity: 0,
+			},
+			next: {
+				opacity: 0,
+			},
+		},
+		pagination: {
+			el: section.querySelector('.swiper-pagination'),
+			type: 'bullets',
+			clickable: true,
+		},
+		on: {
+			slideChange: function (swiper) {
+				section.querySelector('.js-main-hero-nav button.active').classList.remove('active');
+				section.querySelector('.js-main-hero-nav button[data-index="' + swiper.realIndex + '"]').classList.add('active');
+			}
+		}
+	});
+
+	section.querySelector('.js-main-hero-nav').addEventListener('click', function (e) {
+		const button = e.target.closest('button');
+
+		if (button) {
+			button.classList.add('active');
+
+			swiper.slideToLoop(+button.dataset.index);
+
+			getSiblings(button.closest('li')).forEach(function (li) {
+				li.querySelector('button').classList.remove('active');
+			});
+		}
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
 	initArticlesSlider();
+	initMainHeroSlider();
 
 	setTelMask();
 	showSearchForm();
