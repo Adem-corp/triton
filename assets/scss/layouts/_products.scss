@@ -1,0 +1,48 @@
+@use "../helpers" as *;
+
+.products {
+	--swiper-pagination-progressbar-size: 1px;
+	--swiper-pagination-progressbar-bg-color: var(--color-main);
+	padding-block: 60px;
+	color: var(--color-white);
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&__wrap {
+		overflow: hidden;
+	}
+
+	&__title {
+		margin-bottom: 35px;
+		@include mob {
+			margin-bottom: 20px;
+		}
+	}
+
+	.swiper {
+		overflow: visible;
+	}
+
+	.swiper-pagination {
+		margin-top: 40px;
+	}
+
+	&__nav {
+		display: flex;
+		gap: 15px;
+		justify-content: space-between;
+		margin-top: 15px;
+	}
+
+	&__count {
+
+		span {
+			color: var(--color-gold);
+
+			span {
+				margin-inline: 20px;
+			}
+		}
+	}
+}

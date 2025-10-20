@@ -41,3 +41,24 @@
 		border-radius: inherit;
 	}
 }
+
+.arrows {
+	display: flex;
+	gap: 10px;
+}
+
+.arrow {
+	display: grid;
+	place-items: center;
+	width: 70px;
+	height: 70px;
+	color: #fff;
+	background: none;
+	border: 1px solid #7D7D7D;
+	border-radius: 10px;
+	transition: all 0.3s ease-in-out;
+	@include hover {
+		color: var(--color-accent);
+		border-color: var(--color-gold);
+	}
+}

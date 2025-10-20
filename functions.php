@@ -76,6 +76,7 @@ function adem_change_excerpt_more() {
 }
 
 require 'inc/acf.php';
+require 'inc/catalog.php';
 require 'inc/mail.php';
 require 'inc/menu.php';
 require 'inc/rest.php';

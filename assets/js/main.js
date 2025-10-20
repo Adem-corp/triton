@@ -276,11 +276,77 @@ function initMainHeroSlider() {
 	});
 }
 
+function initProductsSlider() {
+	const sections = document.querySelectorAll('.products');
+
+	if (!sections) return;
+
+	sections.forEach(function (section) {
+		const swiper = new Swiper(section.querySelector('.swiper'), {
+			slidesPerView: 'auto',
+			slidesPerGroup: 1,
+			spaceBetween: 13,
+			centerInsufficientSlides: true,
+			pagination: {
+				el: section.querySelector('.swiper-pagination'),
+				type: 'progressbar',
+			},
+			navigation: {
+				nextEl: section.querySelector('.arrow--next'),
+				prevEl: section.querySelector('.arrow--prev'),
+			},
+			breakpoints: {
+				577: {
+					slidesPerView: 2,
+					slidesPerGroup: 2,
+				},
+				1025: {
+					slidesPerView: 3,
+					slidesPerGroup: 3,
+				},
+				1201: {
+					slidesPerView: 4,
+					slidesPerGroup: 4,
+				}
+			},
+			on: {
+				init: function (e) {
+					let currentIndex = 0;
+					if ('max' === e.currentBreakpoint) {
+						currentIndex = e.passedParams.slidesPerGroup;
+					} else {
+						currentIndex = e.passedParams.breakpoints[e.currentBreakpoint].slidesPerGroup;
+					}
+					section.querySelector('.products__count').innerHTML = formatString(currentIndex, e.slides.length);
+				},
+				slideChange: function (e) {
+					let currentIndex = 0;
+					if ('max' === e.currentBreakpoint) {
+						currentIndex = e.passedParams.slidesPerGroup;
+					} else {
+						currentIndex = e.passedParams.breakpoints[e.currentBreakpoint].slidesPerGroup;
+					}
+					section.querySelector('.products__count').innerHTML = formatString(currentIndex + e.activeIndex, e.slides.length);
+				}
+			},
+		});
+	});
+
+	function formatString(currentIndex, slidesLength) {
+		return '<span>' + withLeadingZero(currentIndex) + '<span>/</span></span>' + withLeadingZero(slidesLength);
+	}
+
+	function withLeadingZero(num) {
+		return num < 10 ? '0' + num : String(num);
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
 	initArticlesSlider();
 	initMainHeroSlider();
+	initProductsSlider();
 
 	setTelMask();
 	showSearchForm();
