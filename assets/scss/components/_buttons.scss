@@ -62,3 +62,29 @@
 		border-color: var(--color-gold);
 	}
 }
+
+.catalog-btn {
+	display: grid;
+	padding: 20px 15px;
+	color: var(--color-white);
+	font-size: 32px;
+	font-family: var(--font-secondary), sans-serif;
+	line-height: 1;
+	background-color: var(--color-accent);
+	border: none;
+	border-radius: 10px;
+	@include from(577px) {
+		text-align: left;
+		background-image: url(assets/images/catalog-btn-bg.png);
+		background-repeat: no-repeat;
+		background-position: right top;
+		aspect-ratio: 1 / 1;
+	}
+	@include mob {
+		font-size: 28px;
+	}
+
+	&__text {
+		margin-top: auto;
+	}
+}

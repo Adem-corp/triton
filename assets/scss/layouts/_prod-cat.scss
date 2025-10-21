@@ -1,0 +1,69 @@
+@use "../helpers" as *;
+
+.prod-cat {
+	background-color: #fff;
+	background-image: url(assets/images/prod-cat-bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100%;
+	border-radius: var(--section-border-radius);
+	padding-block: 170px 185px;
+	@include to(1200px) {
+		padding-top: 90px;
+	}
+	@include tablet-sm {
+		padding-block: 60px;
+	}
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&__grid {
+		display: grid;
+		gap: 16px;
+		margin-top: 45px;
+		counter-set: prod-cat;
+		@include from(577px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@include from(1025px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@include from(1201px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		@include mob {
+			margin-top: 30px;
+		}
+	}
+
+	&__second {
+		display: grid;
+		grid-column: span 2;
+		gap: 10px;
+		align-content: center;
+		@include from(769px) {
+			height: 338px;
+			padding-inline: 15px;
+		}
+		@include to(1200px) {
+			grid-column: 1 / -1;
+		}
+	}
+
+	&__subtitle {
+		line-height: 1.15;
+		@include from(769px) {
+			font-size: 20px;
+		}
+	}
+
+	&__btn {
+		@include from(1201px) {
+			grid-column: 2;
+		}
+		@include mob {
+			grid-column: 1 / -1;
+		}
+	}
+}

@@ -26,6 +26,7 @@ $discount = get_field( 'discount' );
 				<?php if ( $badge ) : ?>
 					<div class="prod-card__badge"><?php echo esc_html( $badge ); ?></div>
 				<?php endif; ?>
+				<!--				TODO переделать на автоматический расчет скидки-->
 				<?php if ( $discount ) : ?>
 					<div class="prod-card__discount"><?php echo esc_html( $discount ); ?></div>
 				<?php endif; ?>
