@@ -13,7 +13,7 @@ $text        = get_sub_field( 'text' );
 $bg          = get_sub_field( 'bg' );
 ?>
 
-<section class="features" style="background-image: url(<?php echo esc_url( $bg ); ?>);">
+<section class="section section--white features" style="background-image: url(<?php echo esc_url( $bg ); ?>);">
 	<div class="container">
 		<?php if ( $block_title ) : ?>
 			<h2 class="title features__title"><?php echo wp_kses_post( $block_title ); ?></h2>

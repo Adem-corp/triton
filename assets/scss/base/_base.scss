@@ -158,3 +158,34 @@ address {
 	--swiper-pagination-color: var(--color-gold);
 	position: static;
 }
+
+.section {
+	margin-block: 10px;
+
+	&--white {
+		background-color: #fff;
+
+		&:has(+ .section--white) {
+			position: relative;
+		}
+
+		+ .section--white {
+			margin-top: -70px;
+			padding-top: 160px;
+			@include tablet {
+				padding-top: 120px;
+			}
+			@include mob {
+				padding-top: 100px;
+			}
+		}
+
+		&:last-of-type {
+			margin-bottom: -70px;
+			padding-bottom: 160px !important;
+			@include tablet-sm {
+				padding-bottom: 100px !important;
+			}
+		}
+	}
+}

@@ -11,7 +11,7 @@ $news        = get_sub_field( 'news' );
 $cat_url     = get_category_link( 6 );
 ?>
 
-<section class="news">
+<section class="section section--white news">
 	<div class="container news__container">
 		<?php if ( $block_title ) : ?>
 			<h2 class="title news__title"><?php echo wp_kses_post( $block_title ); ?></h2>

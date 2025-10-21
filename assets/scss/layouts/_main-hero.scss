@@ -2,9 +2,7 @@
 
 .main-hero {
 	--slide-bottom-padding: 95px;
-	padding: 1px;
 	color: var(--color-white);
-	background-color: #fff;
 	border-radius: var(--section-border-radius);
 	@include tablet {
 		--slide-bottom-padding: 60px;
@@ -18,6 +16,17 @@
 
 		.main-hero__video {
 			margin-top: -70px;
+		}
+	}
+
+	+ .section--white {
+		margin-top: -70px;
+		padding-top: 160px;
+		@include tablet {
+			padding-top: 120px;
+		}
+		@include mob {
+			padding-top: 100px;
 		}
 	}
 

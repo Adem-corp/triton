@@ -1,9 +1,8 @@
 @use "../helpers" as *;
 
 .footer {
-	padding: 2px;
+	position: relative;
 	color: #fff;
-	background-color: #fff;
 	border-radius: var(--section-border-radius);
 
 	&__wrap {

@@ -42,6 +42,7 @@ $option_social = get_field( 'social', 'option' );
 					<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-search' ); ?>"></use>
 				</svg>
 			</button>
+			<!--			TODO burger-->
 			<button class="square-btn header__burger-btn" type="button">
 				<svg width="22" height="18">
 					<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-burger' ); ?>"></use>

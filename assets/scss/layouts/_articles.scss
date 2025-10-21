@@ -3,7 +3,6 @@
 .articles {
 	position: relative;
 	border-radius: var(--section-border-radius);
-	margin-block: 10px;
 	padding-block: 80px;
 	@include tablet-sm {
 		padding-block: 60px;

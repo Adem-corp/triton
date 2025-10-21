@@ -1,9 +1,7 @@
 @use "../helpers" as *;
 
 .news {
-	margin-block: 10px;
 	padding-block: 70px;
-	background-color: #fff;
 	border-radius: var(--section-border-radius);
 	@include tablet-sm {
 		padding-block: 60px;
@@ -14,8 +12,19 @@
 
 	+ .articles {
 		margin-top: 0;
+		padding-top: 80px;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
+		padding-block: 80px;
+		@include tablet {
+			padding-block: 80px;
+		}
+		@include tablet-sm {
+			padding-block: 60px;
+		}
+		@include mob {
+			padding-block: 30px;
+		}
 
 		&::after {
 			height: 200%;

@@ -10,7 +10,7 @@ $block_title = get_sub_field( 'title' );
 $subtitle    = get_sub_field( 'subtitle' );
 ?>
 
-<section class="feedback">
+<section class="section feedback">
 	<div class="container feedback__container">
 		<div class="feedback__header">
 			<?php if ( $block_title ) : ?>

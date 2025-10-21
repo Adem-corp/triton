@@ -12,7 +12,7 @@ $subtitle     = get_sub_field( 'subtitle' );
 $categories   = get_sub_field( 'categories' );
 ?>
 
-<section class="prod-cat">
+<section class="section section--white prod-cat">
 	<div class="container">
 		<?php if ( $block_title ) : ?>
 			<h2 class="title prod-cat__title"><?php echo wp_kses_post( $block_title ); ?></h2>

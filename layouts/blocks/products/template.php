@@ -10,7 +10,7 @@ $block_title = get_sub_field( 'title' );
 $products    = get_sub_field( 'products' );
 ?>
 
-<section class="products">
+<section class="section products">
 	<div class="products__wrap">
 		<div class="container">
 			<?php if ( $block_title ) : ?>
