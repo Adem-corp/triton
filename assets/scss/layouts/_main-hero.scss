@@ -40,11 +40,11 @@
 		display: flex;
 		box-sizing: border-box;
 		height: 900px;
-		max-height: calc(100vh - 2px);
+		max-height: 100vh;
 		padding-top: 125px;
 		padding-bottom: var(--slide-bottom-padding);
 		@include tablet {
-			height: calc(100vh - 2px);
+			height: 100vh;
 		}
 
 		&.swiper-slide-active {

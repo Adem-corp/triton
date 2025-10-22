@@ -24,7 +24,7 @@ $option_social = get_field( 'social', 'option' );
 <header class="header">
 	<div class="container header__container">
 		<div class="header__col header__main">
-			<a href="<?php site_url( '/' ); ?>" class="header__logo">
+			<a href="<?php echo esc_url( site_url( '/' ) ); ?>" class="header__logo">
 				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo-header.svg' ); ?>" class="header__l-img" width="176" height="40" alt="">
 			</a>
 			<?php
@@ -82,6 +82,10 @@ $option_social = get_field( 'social', 'option' );
 	</form>
 </header>
 <main class="main">
-	<?php if ( is_front_page() ) {
+	<?php
+	if ( is_front_page() ) {
 		get_template_part( 'layouts/partials/main-hero' );
-	} ?>
+	} else {
+		get_template_part( 'layouts/partials/hero' );
+	}
+	?>

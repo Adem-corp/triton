@@ -1,0 +1,22 @@
+@use "../helpers" as *;
+
+.breadcrumbs {
+	color: var(--color-white);
+	font-size: 14px;
+
+	a {
+		text-decoration: none;
+	}
+
+	&__separator {
+		display: inline-block;
+		width: 6px;
+		height: 9px;
+		margin-inline: 10px;
+		background: url(assets/images/breadcrumbs-separator.svg) center / cover;
+	}
+
+	.breadcrumb_last {
+		color: #9E9E9E;
+	}
+}
