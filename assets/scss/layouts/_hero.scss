@@ -5,12 +5,24 @@
 	z-index: 1;
 	padding-block: 120px;
 	color: var(--color-white);
+	background-color: var(--color-main);
 	border-radius: var(--section-border-radius);
 	@include tablet {
 		padding-bottom: 60px;
 	}
 	@include mob {
 		padding-bottom: 30px;
+	}
+
+	+ .section--white {
+		margin-top: -70px;
+		padding-top: 160px;
+		@include tablet {
+			padding-top: 120px;
+		}
+		@include mob {
+			padding-top: 100px;
+		}
 	}
 
 	&::before {
