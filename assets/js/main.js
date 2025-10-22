@@ -341,8 +341,27 @@ function initProductsSlider() {
 	}
 }
 
+function initAccordion() {
+	const accord_containers = document.querySelectorAll('.js-accord');
+
+	if (!accord_containers) return;
+
+	accord_containers.forEach(function (list) {
+		list.addEventListener('click', function (e) {
+			const target = e.target.closest('.js-accord-name');
+
+			if (target) {
+				target.parentElement.classList.toggle('active');
+				slideToggle(target.nextElementSibling);
+			}
+		});
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
+
+	initAccordion();
 
 	initArticlesSlider();
 	initMainHeroSlider();

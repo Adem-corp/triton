@@ -1,0 +1,135 @@
+@use "../helpers" as *;
+
+.faq {
+
+	&__title {
+		margin-bottom: 45px;
+		@include tablet-sm {
+			margin-bottom: 30px;
+		}
+		@include mob {
+			margin-bottom: 15px;
+		}
+	}
+
+	&__list {
+		display: grid;
+		gap: 10px;
+		counter-set: faq;
+	}
+
+	&__item {
+		background-color: var(--color-white);
+		border-radius: 10px;
+		counter-increment: faq;
+
+		&.active {
+
+			.faq__i-btn {
+				color: #fff;
+				background-color: var(--color-gold);
+			}
+
+			.faq__i-icon {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+
+	&__i-question {
+		display: flex;
+		gap: 20px;
+		align-items: center;
+		padding: 15px 15px 15px 20px;
+		font-weight: 700;
+		font-size: 20px;
+		cursor: pointer;
+		@include mob {
+			padding: 15px;
+			font-size: 18px;
+		}
+
+		&::before {
+			@include from(577px) {
+				color: #9E9E9E;
+				content: counter(faq, decimal-leading-zero);
+			}
+			@include from(1025px) {
+				margin-right: 35px;
+			}
+		}
+	}
+
+	&__i-btn {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: 70px;
+		height: 70px;
+		margin-left: auto;
+		background-color: #fff;
+		border-radius: 10px;
+	}
+
+	&__i-answer {
+		display: none;
+	}
+
+	&__i-inner {
+		display: flex;
+		gap: 35px;
+		padding: 0 15px 40px 20px;
+		font-size: 14px;
+		line-height: 1.35;
+		@include tablet {
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+		@include mob {
+			padding: 0 15px 30px;
+		}
+	}
+
+	&__i-caption {
+		color: var(--color-gold);
+		font-weight: 700;
+		@include tablet {
+			display: none;
+		}
+	}
+
+	&__i-text {
+		@include tablet {
+			width: 100%;
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__i-gallery {
+		display: flex;
+		flex-shrink: 0;
+		flex-wrap: wrap;
+		gap: 15px;
+		max-width: 100%;
+		@include from(1025px) {
+			max-width: 335px;
+		}
+		@include mob {
+			gap: 10px;
+		}
+	}
+
+	&__i-link {
+		display: block;
+		@include to(400px) {
+			width: calc(50% - 5px);
+		}
+	}
+
+	&__i-img {
+		display: block;
+	}
+}
