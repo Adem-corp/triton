@@ -9,6 +9,14 @@
 		padding-block: 30px;
 	}
 
+	+ .offers {
+		margin-top: -360px;
+		padding-top: 515px;
+		@include to(1201px) {
+			padding-top: 350px;
+		}
+	}
+
 	&__wrap {
 		overflow: hidden;
 	}

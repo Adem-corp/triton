@@ -1,0 +1,53 @@
+@use "../helpers" as *;
+
+.offers {
+	padding-block: 150px 120px;
+	color: var(--color-white);
+	background: url(assets/images/offers-bg.jpg) center top no-repeat;
+	@include laptop {
+		padding-block: 100px;
+	}
+	@include tablet {
+		padding-block: 60px;
+	}
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&__title {
+		margin-bottom: 60px;
+		@include from(1025px) {
+			font-size: 100px !important;
+			line-height: 0.85;
+		}
+		@include from(1201px) {
+			font-size: 130px !important;
+		}
+		@include from(1441px) {
+			font-size: 178px !important;
+		}
+		@include tablet {
+			margin-bottom: 30px;
+		}
+		@include mob {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__grid {
+		@include from(769px) {
+			column-count: 2;
+			column-gap: 15px;
+		}
+	}
+
+	&__btn {
+		margin-top: 15px;
+		margin-left: auto;
+		border-color: var(--color-white);
+	}
+
+	.all-btn__icon {
+		color: var(--color-gold);
+	}
+}

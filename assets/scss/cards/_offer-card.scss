@@ -1,0 +1,27 @@
+@use "../helpers" as *;
+
+.offer-card {
+	display: block;
+	overflow: hidden;
+	text-decoration: none;
+	border-radius: 10px;
+	break-inside: avoid;
+	transition: box-shadow 0.3s ease-in-out;
+
+	&:is(a) {
+		@include hover {
+			box-shadow: 0 0 30px 0 rgba(#18A9E1, 1);
+		}
+	}
+
+	+ .offer-card {
+		margin-top: 15px;
+	}
+
+	&__img {
+		display: block;
+		@include tablet-sm {
+			width: 100%;
+		}
+	}
+}

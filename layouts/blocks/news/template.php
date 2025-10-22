@@ -28,9 +28,9 @@ $cat_url     = get_category_link( 6 );
 		}
 		?>
 		<?php if ( $cat_url ) : ?>
-			<a href="<?php echo esc_url( $cat_url ); ?>" class="news__btn">
+			<a href="<?php echo esc_url( $cat_url ); ?>" class="all-btn news__btn">
 				<span>Все новости</span>
-				<svg width="85" height="85" class="news__btn-icon">
+				<svg width="85" height="85" class="all-btn__icon">
 					<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-arrow-angle' ); ?>"></use>
 				</svg>
 			</a>
