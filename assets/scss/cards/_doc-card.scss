@@ -1,0 +1,27 @@
+@use "../helpers" as *;
+
+.doc-card {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	box-sizing: border-box;
+	width: 275px;
+	height: 275px;
+	padding: 20px 10px;
+	background: url(assets/images/doc-card-bg.jpg) center top / cover;
+	border-radius: 10px;
+
+	&__name {
+		margin-top: auto;
+		color: var(--color-white);
+		font-size: 24px;
+		font-family: var(--font-secondary), sans-serif;
+		line-height: 1;
+	}
+
+	&__link {
+		color: var(--color-accent);
+		font-weight: 700;
+		font-size: 14px;
+	}
+}

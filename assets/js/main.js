@@ -358,12 +358,30 @@ function initAccordion() {
 	});
 }
 
+function initDocsSlider() {
+	const sections = document.querySelectorAll('.docs');
+
+	if (!sections) return;
+
+	sections.forEach(function (section) {
+		const swiper = new Swiper(section.querySelector('.swiper'), {
+			slidesPerView: 'auto',
+			spaceBetween: 10,
+			navigation: {
+				nextEl: section.querySelector('.arrow--next'),
+				prevEl: section.querySelector('.arrow--prev'),
+			},
+		});
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
 	initAccordion();
 
 	initArticlesSlider();
+	initDocsSlider();
 	initMainHeroSlider();
 	initProductsSlider();
 

@@ -1,0 +1,41 @@
+@use "../helpers" as *;
+
+.docs {
+	padding-block: 70px;
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&:has(+ .section--white) {
+		padding-bottom: 0;
+	}
+
+	&__container {
+		display: grid;
+		grid-template-columns: 445px minmax(0, 1fr);
+		gap: 30px;
+		@include tablet {
+			grid-template-columns: 350px minmax(0, 1fr);
+		}
+		@include tablet-sm {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+
+	&__slider {
+		@include from(769px) {
+			grid-row: span 2;
+		}
+	}
+
+	.arrows {
+		margin-top: auto;
+		@include tablet-sm {
+			justify-content: flex-end;
+		}
+	}
+
+	.arrow {
+		color: var(--color-main);
+	}
+}

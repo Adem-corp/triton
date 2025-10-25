@@ -1,6 +1,14 @@
 @use "../helpers" as *;
 
 .faq {
+	padding-block: 70px;
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&:has(+ .section--white) {
+		padding-bottom: 0;
+	}
 
 	&__title {
 		margin-bottom: 45px;
