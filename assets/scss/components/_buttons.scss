@@ -18,7 +18,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 70px;
+	min-height: 70px;
 	padding: 1px;
 	font-size: 32px;
 	font-family: var(--font-secondary), sans-serif;
@@ -33,12 +33,14 @@
 
 	&__icon {
 		display: grid;
-		place-items: center;
+		flex-shrink: 0;
 		width: 68px;
 		height: 100%;
+		min-height: inherit;
 		color: #fff;
 		background-color: var(--color-main);
 		border-radius: inherit;
+		place-items: center;
 	}
 }
 

@@ -3,6 +3,39 @@
 .txt-t {
 	padding-block: 60px;
 
+	&:has(+.cta) {
+		margin-bottom: 0;
+		padding-bottom: 0;
+
+		.txt-t__container {
+			padding-bottom: 120px;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+			@include tablet {
+				padding-bottom: 60px;
+			}
+			@include tablet-sm {
+				padding-bottom: 30px;
+			}
+		}
+	}
+
+	+ .cta {
+		margin-top: 0;
+		padding-top: 0;
+		@include tablet {
+			padding-top: 0;
+		}
+		@include mob {
+			padding-top: 0;
+		}
+
+		.cta__container {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
+
 	&__container {
 		padding: 70px 40px;
 		background-color: var(--color-white);
