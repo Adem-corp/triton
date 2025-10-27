@@ -1,0 +1,59 @@
+@use "../helpers" as *;
+
+.cta-a {
+
+	&.section--black {
+		color: #fff;
+	}
+
+	&__container {
+		@include from(769px) {
+			display: flex;
+			gap: 30px;
+			align-items: center;
+		}
+	}
+
+	&__body {
+		padding-block: 60px 135px;
+		@include from(769px) {
+			flex: 1 0 max-content;
+		}
+		@include tablet {
+			padding-block: 60px;
+		}
+		@include tablet-sm {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	&__title {
+		margin-bottom: 15px;
+	}
+
+	&__subtitle {
+		margin-bottom: 50px;
+		font-size: 20px;
+		line-height: 1.3;
+	}
+
+	&__btn {
+		color: #fff;
+		background-color: var(--color-accent);
+		@include tablet-sm {
+			margin-inline: auto;
+		}
+	}
+
+	&__figure {
+		align-self: flex-end;
+	}
+
+	&__img {
+		display: block;
+		@include tablet-sm {
+			display: none;
+		}
+	}
+}
