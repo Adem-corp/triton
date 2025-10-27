@@ -32,6 +32,13 @@ function tmce_change_toolbar( $args ) {
 					),
 				),
 				array(
+					'title'    => 'Semibold',
+					'selector' => 'ul, ol, a, p, span',
+					'styles'   => array(
+						'font-weight' => '600',
+					),
+				),
+				array(
 					'title'    => 'Bold',
 					'selector' => 'ul, ol, a, p, span',
 					'styles'   => array(

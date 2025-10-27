@@ -1,0 +1,108 @@
+@use "../helpers" as *;
+
+.txt {
+	padding-block: 90px;
+	overflow: hidden;
+	@include tablet-sm {
+		padding-block: 60px;
+	}
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&:has(.txt__f-img) {
+		padding-bottom: 70px !important;
+		@include tablet-sm {
+			padding-bottom: 70px !important;
+		}
+	}
+
+	&__title {
+		margin-bottom: 65px;
+		@include tablet {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__block {
+		display: grid;
+		gap: 115px;
+		@include laptop-sm {
+			gap: 40px;
+		}
+		@include tablet {
+			gap: 20px;
+		}
+
+		&:has(.txt__b-title + .txt__b-text) {
+			@include from(1025px) {
+				grid-template-columns: 360px 1fr;
+			}
+		}
+
+		+ .txt__block {
+			margin-top: 30px;
+		}
+	}
+
+	&__b-title {
+		font-weight: 700;
+		font-size: 20px;
+
+		&[data-title=" "] {
+			@include tablet {
+				display: none;
+			}
+		}
+
+		br {
+			@include tablet {
+				display: none;
+			}
+		}
+	}
+
+	&__b-text {
+		font-size: 14px;
+		line-height: 1.35;
+
+		p {
+			margin-bottom: 1.4em;
+		}
+	}
+
+	&__footer {
+		display: flex;
+		gap: 10px;
+		margin-top: 40px;
+		font-size: 14px;
+		@include tablet-sm {
+			flex-direction: column;
+		}
+	}
+
+	&__f-text {
+		@include from(769px) {
+			flex: 1 0 460px;
+		}
+
+		&:has(+ .txt__f-img) {
+			@include from(769px) {
+				margin-top: 35px;
+			}
+		}
+
+		p {
+			margin-bottom: 1.3em;
+		}
+
+		a {
+			text-decoration-color: var(--color-accent);
+		}
+	}
+
+	&__f-img {
+		align-self: flex-end;
+		margin-left: -10px;
+	}
+}
