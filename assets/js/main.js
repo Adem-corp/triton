@@ -417,6 +417,22 @@ function initTabs() {
 	}
 }
 
+function initCardsASlider() {
+	const sliders = document.querySelectorAll('.card-a__slider');
+
+	if (!sliders) return;
+
+	sliders.forEach(function (slider) {
+		const swiper = new Swiper(slider.querySelector('.swiper'), {
+			slidesPerView: 'auto',
+			spaceBetween: 10,
+			pagination: {
+				el: slider.querySelector('.swiper-pagination'),
+			},
+		});
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
@@ -424,6 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	initTabs();
 
 	initArticlesSlider();
+	initCardsASlider();
 	initDocsSlider();
 	initMainHeroSlider();
 	initProductsSlider();
