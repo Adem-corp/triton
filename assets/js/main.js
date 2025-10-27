@@ -375,10 +375,53 @@ function initDocsSlider() {
 	});
 }
 
+function initTabs() {
+	const tabsLists = document.querySelectorAll('.js-tabs');
+
+	if (!tabsLists) return;
+
+	if (tabsLists) {
+		tabsLists.forEach(function (tabsList) {
+			tabsList.addEventListener('click', function (e) {
+				const tabItem = e.target.closest('[data-tab]');
+
+				if (tabItem && tabItem.classList.contains('active')) {
+					tabsList.classList.toggle('open');
+				}
+
+				if (tabItem && !tabItem.classList.contains('active') && e.target !== tabsList) {
+					const currentTab = tabsList.querySelector('.active');
+
+					changeTab(tabItem, currentTab);
+				}
+			});
+		})
+	}
+
+	function changeTab(tabItem, currentTabItem) {
+		const tabContainers = document.querySelectorAll('[data-tab-container="' + tabItem.getAttribute('data-tab') + '"]');
+		const currentTabContainers = document.querySelectorAll('[data-tab-container="' + currentTabItem.getAttribute('data-tab') + '"]');
+
+		currentTabItem.classList.remove('active');
+		tabItem.classList.add('active');
+
+		currentTabContainers.forEach(function (currentTabContainer) {
+			currentTabContainer.classList.remove('active');
+		});
+
+		tabContainers.forEach(function (tabContainer) {
+			tabContainer.classList.add('active');
+		});
+
+		tabItem.parentNode.classList.remove('open');
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
 	initAccordion();
+	initTabs();
 
 	initArticlesSlider();
 	initDocsSlider();

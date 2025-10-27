@@ -1,0 +1,156 @@
+@use "../helpers" as *;
+
+.txt-t {
+	padding-block: 60px;
+
+	&__container {
+		padding: 70px 40px;
+		background-color: var(--color-white);
+		border-radius: var(--section-border-radius);
+		@include laptop-sm {
+			padding-inline: 0.75rem;
+		}
+		@include tablet {
+			padding-block: 50px;
+		}
+		@include tablet-sm {
+			padding-block: 30px;
+		}
+	}
+
+	&__title {
+		margin-bottom: 25px;
+	}
+
+	&__tabs {
+		position: relative;
+		display: flex;
+		gap: 40px;
+		margin-bottom: 35px;
+		overflow-x: auto;
+		font-weight: 700;
+		font-size: 20px;
+		@include mob {
+			font-size: 18px;
+		}
+
+		&::after {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			display: block;
+			height: 1px;
+			background-color: #DADADA;
+			content: "";
+		}
+	}
+
+	&__tab-item {
+		padding-block: 15px;
+		white-space: nowrap;
+		border-bottom: 1px solid transparent;
+		cursor: pointer;
+		@include mob {
+			padding-block: 10px;
+		}
+
+		&.active {
+			color: var(--color-accent);
+			border-color: var(--color-accent);
+		}
+	}
+
+	&__content {
+
+		&:not(.active) {
+			display: none;
+		}
+	}
+
+	&__t-header {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 15px;
+		align-content: end;
+		min-height: 360px;
+		margin-bottom: 70px;
+		padding: 35px;
+		color: #fff;
+		background-color: #000;
+		border-radius: var(--section-border-radius);
+		@include tablet-sm {
+			margin-bottom: 40px;
+			padding: 20px;
+		}
+	}
+
+	&__h-title {
+		font-size: 36px;
+		font-family: var(--font-secondary), sans-serif;
+		@include mob {
+			font-size: 30px;
+		}
+	}
+
+	&__h-text {
+		font-size: 14px;
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__h-bg {
+		position: absolute;
+		z-index: -1;
+		height: 100%;
+		object-fit: cover;
+		border-radius: inherit;
+		opacity: 0.4;
+		inset: 0;
+	}
+
+	&__t-block {
+		display: grid;
+		gap: 110px;
+		@include laptop-sm {
+			gap: 40px;
+		}
+		@include tablet {
+			gap: 20px;
+		}
+
+		&:has(.txt-t__b-title + .txt-t__b-text) {
+			@include from(1025px) {
+				grid-template-columns: 325px 1fr;
+			}
+		}
+
+		+ .txt-t__t-block {
+			margin-top: 50px;
+			@include tablet {
+				margin-top: 30px;
+			}
+		}
+	}
+
+	&__b-title {
+		font-weight: 700;
+		font-size: 20px;
+	}
+
+	&__b-text {
+		font-size: 14px;
+
+		p {
+			margin-bottom: 1.4em;
+		}
+
+		img {
+			border-radius: 10px;
+		}
+	}
+}
