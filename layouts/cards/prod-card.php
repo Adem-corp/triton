@@ -10,7 +10,8 @@ $class    = 'prod-card';
 $class   .= isset( $args['class'] ) ? " {$args['class']}" : '';
 $caption  = get_field( 'caption' );
 $badge    = get_field( 'badge' );
-$discount = get_field( 'discount' );
+$price    = get_field( 'price' );
+$discount = $price && $price['old'] ? round( ( ( $price['old'] - $price['new'] ) / $price['old'] ) * 100 ) : 0;
 ?>
 
 <article class="<?php echo esc_attr( $class ); ?>">
@@ -26,9 +27,8 @@ $discount = get_field( 'discount' );
 				<?php if ( $badge ) : ?>
 					<div class="prod-card__badge"><?php echo esc_html( $badge ); ?></div>
 				<?php endif; ?>
-				<!--				TODO переделать на автоматический расчет скидки-->
 				<?php if ( $discount ) : ?>
-					<div class="prod-card__discount"><?php echo esc_html( $discount ); ?></div>
+					<div class="prod-card__discount"><?php echo esc_html( '-' . $discount . '%' ); ?></div>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>
