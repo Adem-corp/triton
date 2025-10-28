@@ -66,7 +66,7 @@ function adem_register_product_post_type() {
 				'slug'       => 'catalog/%prod_cat%',
 				'with_front' => false,
 			),
-			'supports'      => array( 'title', 'thumbnail', 'excerpt' ),
+			'supports'      => array( 'title', 'thumbnail', 'excerpt', 'editor' ),
 			'taxonomies'    => array( 'prod_cat' ),
 		)
 	);

@@ -1,0 +1,47 @@
+@use "../helpers" as *;
+
+.card-b {
+	padding: 40px 30px 20px;
+	text-decoration: none;
+	background-color: #F0F0F0;
+	border-radius: 10px;
+	transition: box-shadow 0.3s ease-in-out;
+	@include mob {
+		padding: 30px 20px 20px;
+	}
+	@include hover {
+		box-shadow: 0 0 20px 0 rgba(#000, 0.15);
+
+		.card-b__title {
+			color: var(--color-accent);
+		}
+	}
+
+	&__header {
+		display: grid;
+		gap: 30px;
+		align-items: start;
+		@include from(577px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__title {
+		font-size: 24px;
+		font-family: var(--font-secondary), sans-serif;
+		transition: color 0.3s ease-in-out;
+	}
+
+	&__img {
+		display: block;
+		margin-left: auto;
+		@include mob {
+			margin-inline: auto;
+		}
+	}
+
+	&__body {
+		margin-top: 20px;
+		font-size: 14px;
+	}
+}

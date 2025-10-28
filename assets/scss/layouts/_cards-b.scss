@@ -1,0 +1,24 @@
+@use "../helpers" as *;
+
+.cards-b {
+	padding-block: 60px;
+
+	+ .cta-a {
+		padding-top: 45px;
+	}
+
+	&__title {
+		margin-bottom: 40px;
+		@include mob {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__body {
+		display: grid;
+		gap: 20px;
+		@include from(1025px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
