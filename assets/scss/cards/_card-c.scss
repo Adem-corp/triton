@@ -1,0 +1,37 @@
+@use "../helpers" as *;
+
+.card-c {
+	padding: 15px 20px 20px;
+	background-color: #fff;
+	border-radius: 20px;
+
+	&__img {
+		display: block;
+		margin-bottom: 20px;
+		margin-left: auto;
+	}
+
+	&__name {
+		margin-bottom: 5px;
+		font-size: 24px;
+		font-family: var(--font-secondary), sans-serif;
+	}
+
+	&__text {
+
+		ul {
+			padding-left: 25px;
+
+			li {
+
+				&::marker {
+					font-size: 12px;
+				}
+			}
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
