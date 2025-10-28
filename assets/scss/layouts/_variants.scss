@@ -1,0 +1,66 @@
+@use "../helpers" as *;
+
+.variants {
+	padding-block: 60px;
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&__title {
+		margin-bottom: 50px;
+		@include mob {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__item {
+		display: flex;
+		gap: 15px;
+		align-items: flex-start;
+		padding-top: 20px;
+		border-top: 1px solid #7D7D7D;
+		@include tablet-sm {
+			flex-direction: column;
+		}
+
+		+ .variants__item {
+			margin-top: 80px;
+			@include tablet-sm {
+				margin-top: 40px;
+			}
+		}
+	}
+
+	&__img {
+		display: block;
+		@include from(769px) {
+			width: 180px;
+			height: 180px;
+			object-fit: cover;
+		}
+	}
+
+	&__name {
+		font-size: 24px;
+		font-family: var(--font-secondary), sans-serif;
+		white-space: nowrap;
+		@include tablet-sm {
+			order: -1;
+		}
+	}
+
+	&__text {
+		@include from(769px) {
+			max-width: 690px;
+			margin-left: auto;
+		}
+
+		p {
+			margin-bottom: 1.35em;
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
