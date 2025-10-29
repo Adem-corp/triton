@@ -162,6 +162,7 @@ address {
 
 .section {
 	margin-block: 10px;
+	border-radius: var(--section-border-radius);
 
 	&--white {
 		background-color: #fff;
@@ -188,5 +189,9 @@ address {
 				padding-bottom: 100px !important;
 			}
 		}
+	}
+
+	&--black {
+		background-color: #000;
 	}
 }

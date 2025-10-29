@@ -1,6 +1,23 @@
 @use "../helpers" as *;
 
 .cta-a {
+	overflow: hidden;
+
+	&:is(.section--black) {
+
+		&:has(+ .section--white) {
+			position: relative;
+			z-index: 1;
+			margin-bottom: -90px;
+		}
+
+		+ .section--white {
+			padding-top: 165px;
+			@include tablet {
+				padding-top: 120px;
+			}
+		}
+	}
 
 	&.section--black {
 		color: #fff;
