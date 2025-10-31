@@ -1,7 +1,18 @@
 @use "../helpers" as *;
 
 .btn {
-
+	display: block;
+	padding: 15px;
+	font-size: 16px;
+	text-align: center;
+	text-decoration: none;
+	background: none;
+	border: 1px solid var(--color-accent);
+	border-radius: 10px;
+	transition: border-color 0.3s ease-in-out;
+	@include hover {
+		border-color: var(--color-gold);
+	}
 }
 
 .square-btn {

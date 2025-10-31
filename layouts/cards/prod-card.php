@@ -41,5 +41,5 @@ $discount = $price && $price['old'] ? round( ( ( $price['old'] - $price['new'] )
 		)
 	);
 	?>
-	<a href="<?php the_permalink(); ?>" class="prod-card__btn">Подробнее</a>
+	<a href="<?php the_permalink(); ?>" class="btn prod-card__btn">Подробнее</a>
 </article>

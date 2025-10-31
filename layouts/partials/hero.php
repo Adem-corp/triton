@@ -6,15 +6,24 @@
  * @since 1.0.0
  */
 
-$block_title = get_field( 'title' );
-$img         = get_field( 'img' );
-$bg          = get_field( 'bg' );
-$text        = get_field( 'text' );
+if ( is_category() ) {
+	$term_object = get_queried_object();
+	$acf_post_id = 'category_' . $term_object->term_id;
+} else {
+	$acf_post_id = get_the_ID();
+}
+
+$block_title = get_field( 'title', $acf_post_id );
+$img         = get_field( 'img', $acf_post_id );
+$bg          = get_field( 'bg', $acf_post_id );
+$text        = get_field( 'text', $acf_post_id );
 
 if ( is_404() ) {
 	$block_title = 'Страница не найдена';
 } elseif ( is_search() ) {
 	$block_title = 'Результаты поиска';
+} elseif ( is_category() && ! $block_title ) {
+	$block_title = get_the_archive_title();
 }
 ?>
 

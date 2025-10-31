@@ -433,6 +433,41 @@ function initCardsASlider() {
 	});
 }
 
+function showMorePosts() {
+	const button = document.querySelector('.js-show-more-posts');
+
+	if (!button) return;
+
+	button.addEventListener('click', function (e) {
+		e.stopImmediatePropagation();
+		const container = document.querySelector('.js-posts-container')
+		this.textContent = 'Загрузка...';
+
+		const response = fetch(adem_ajax.url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			},
+			body: new URLSearchParams({
+				'action': 'load_more',
+				'query': JSON.stringify(posts),
+				'page': posts_current_page,
+				'nonce': posts_nonce,
+			})
+		})
+			.then(response => response.text())
+			.then(data => {
+				this.textContent = this.dataset.text;
+				container.insertAdjacentHTML('beforeend', data);
+				posts_current_page++;
+				if (posts_current_page === posts_max_pages) this.remove();
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
@@ -446,6 +481,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	initProductsSlider();
 
 	setTelMask();
+	showMorePosts();
 	showSearchForm();
 	sendForms();
 });

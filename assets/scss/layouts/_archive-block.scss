@@ -1,0 +1,41 @@
+@use "../helpers" as *;
+
+.archive-block {
+	padding-block: 70px;
+	@include tablet-sm {
+		padding-block: 60px;
+	}
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&__news {
+		display: grid;
+		gap: 40px 70px;
+		@include from(1025px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@include laptop-sm {
+			column-gap: 30px;
+		}
+	}
+
+	&__posts {
+		display: grid;
+		gap: 10px;
+		@include from(577px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@include from(769px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@include from(1025px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	&__btn {
+		width: 100%;
+		margin-top: 20px;
+	}
+}

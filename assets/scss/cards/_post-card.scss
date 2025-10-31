@@ -2,18 +2,22 @@
 
 .post-card {
 	box-sizing: border-box;
-	width: 348px;
 	max-width: 100%;
 	padding: 4px;
 	background-color: #fff;
 	border-radius: 10px;
 
+	&:is(.swiper-slide) {
+		width: 348px;
+	}
+
 	&__img {
 		display: block;
+		width: 100%;
+		object-fit: cover;
 		border-radius: inherit;
 		@include mob {
 			max-height: 70vw;
-			object-fit: cover;
 		}
 	}
 
