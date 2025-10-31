@@ -196,6 +196,7 @@
 		position: absolute;
 		top: calc(100% - var(--slide-bottom-padding) + 20px);
 		bottom: auto;
+		z-index: 4;
 		@include from(1025px) {
 			display: none;
 		}

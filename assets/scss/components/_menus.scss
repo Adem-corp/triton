@@ -2,24 +2,73 @@
 
 .menu-main {
 	display: flex;
-	gap: 20px;
-	align-items: center;
-	justify-content: space-between;
 	font-size: 14px;
+	@include from(1025px) {
+		gap: 20px;
+		align-items: center;
+		justify-content: space-between;
+	}
 	@include tablet {
-		display: none;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 10;
+		flex-direction: column;
+		width: 280px;
+		overflow: auto;
+		background-color: var(--color-white);
+		transform: translateX(-100%);
+		transition: transform 0.3s ease-in-out;
+	}
+
+	&.open {
+		transform: translateX(0);
 	}
 
 	a {
+		display: flex;
+		align-items: center;
+		height: 100%;
 		text-decoration: none;
+		@include from(1025px) {
+			white-space: nowrap;
+		}
+		@include tablet {
+			width: calc(100% - 44px);
+			height: 44px;
+		}
+	}
+
+	.menu-item {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		@include from(1025px) {
+			gap: 5px;
+		}
+		@include tablet {
+			justify-content: space-between;
+		}
+
+		&.open {
+
+			&::after {
+				transform: rotate(180deg);
+			}
+		}
 	}
 
 	> .menu-item {
 		position: relative;
+		@include from(1025px) {
+			height: 70px;
+		}
 
 		> a {
-			height: 70px;
-			white-space: nowrap;
+			@include tablet {
+				padding-left: 10px;
+			}
 		}
 
 		&:hover,
@@ -34,6 +83,24 @@
 
 	> .menu-item-has-children {
 
+		&::after {
+			width: 9px;
+			height: 6px;
+			background-image: url("data:image/svg+xml;utf8,<svg width=\"9\" height=\"6\" viewBox=\"0 0 9 6\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 1.1074219 0 C 0.82405303 0 0.54042203 0.11630898 0.32421875 0.34765625 C -0.10818782 0.81035079 -0.10818782 1.560738 0.32421875 2.0234375 L 3.7167969 5.6523438 C 4.1492064 6.1150333 4.8507936 6.1150333 5.2832031 5.6523438 L 8.6757812 2.0234375 C 9.1081808 1.560738 9.1081808 0.81035079 8.6757812 0.34765625 C 8.2433717 -0.11503729 7.5417846 -0.11503829 7.109375 0.34765625 L 4.5 3.1386719 L 1.890625 0.34765625 C 1.6744202 0.11630898 1.3907907 0 1.1074219 0 z \" fill=\"%23C69A4C\"/></svg>"); /* stylelint-disable-line */
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			content: "";
+			@include from(1025px) {
+				margin-top: 3px;
+			}
+			@include tablet {
+				width: 44px;
+				height: 44px;
+				background-size: 9px;
+			}
+		}
+
 		a {
 			display: flex;
 			gap: 18px;
@@ -42,23 +109,13 @@
 
 		> a {
 			gap: 5px;
-
-			&::after {
-				width: 9px;
-				height: 6px;
-				margin-top: 1px;
-				background-image: url("data:image/svg+xml;utf8,<svg width=\"9\" height=\"6\" viewBox=\"0 0 9 6\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 1.1074219 0 C 0.82405303 0 0.54042203 0.11630898 0.32421875 0.34765625 C -0.10818782 0.81035079 -0.10818782 1.560738 0.32421875 2.0234375 L 3.7167969 5.6523438 C 4.1492064 6.1150333 4.8507936 6.1150333 5.2832031 5.6523438 L 8.6757812 2.0234375 C 9.1081808 1.560738 9.1081808 0.81035079 8.6757812 0.34765625 C 8.2433717 -0.11503729 7.5417846 -0.11503829 7.109375 0.34765625 L 4.5 3.1386719 L 1.890625 0.34765625 C 1.6744202 0.11630898 1.3907907 0 1.1074219 0 z \" fill=\"%23C69A4C\"/></svg>"); /* stylelint-disable-line */
-				background-size: cover;
-				content: "";
-			}
 		}
 
 		> .sub-menu {
 			border-top-left-radius: 0;
 
 			> .menu-item {
-
-				> a {
+				@include from(1025px) {
 					padding: 0 12px 0 8px;
 				}
 			}
@@ -66,8 +123,7 @@
 	}
 
 	.menu-item-has-children {
-
-		&:hover {
+		@include hover {
 
 			> .sub-menu {
 				display: block;
@@ -82,24 +138,39 @@
 	}
 
 	.sub-menu {
-		position: absolute;
-		top: 100%;
-		left: 0;
 		display: none;
 		width: max-content;
-		padding-block: 15px;
 		list-style: none;
-		background-color: var(--color-white);
-		border: 1px solid var(--color-main);
-		border-radius: 15px;
-
-		a {
-			padding: 7px 12px 7px 20px;
+		@include from(1025px) {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			padding-block: 15px;
+			background-color: var(--color-white);
+			border: 1px solid var(--color-main);
+			border-radius: 15px;
+		}
+		@include tablet {
+			order: 1;
+			width: 100%;
+			margin-left: 10px;
 		}
 
 		.menu-item {
+			@include from(1025px) {
+				padding: 7px 12px 7px 20px;
+			}
+			@include hover {
 
-			&:hover,
+				> a {
+					color: var(--color-accent);
+
+					&::after {
+						background-image: url("data:image/svg+xml;utf8,<svg width=\"6\" height=\"9\" viewBox=\"0 0 6 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 1.1855469 0 C 0.8823293 1.2499987e-07 0.57900352 0.10801547 0.34765625 0.32421875 C -0.11503829 0.75662532 -0.11503829 1.4582154 0.34765625 1.890625 L 3.1386719 4.5 L 0.34765625 7.109375 C -0.11503829 7.5417846 -0.11503829 8.2433817 0.34765625 8.6757812 C 0.81035079 9.1081908 1.560738 9.1081908 2.0234375 8.6757812 L 5.6523438 5.2832031 C 5.6812618 5.2561775 5.7090717 5.2282121 5.734375 5.1992188 C 5.9114983 4.9962655 6 4.7479485 6 4.5 C 6 4.4645788 5.9977554 4.4298213 5.9941406 4.3945312 C 5.9688373 4.147501 5.8547704 3.9059761 5.6523438 3.7167969 L 2.0234375 0.32421875 C 1.7920877 0.10801597 1.4887644 -1.2499987e-07 1.1855469 0 z \" fill=\"%2318A9E1\"/></svg>"); /* stylelint-disable-line */
+					}
+				}
+			}
+
 			&.current-menu-item,
 			&.current-menu-ancestor {
 
@@ -120,15 +191,22 @@
 
 		> .menu-item-has-children {
 
-			> a {
-
-				&::after {
-					width: 6px;
-					height: 9px;
+			&::after {
+				width: 6px;
+				height: 9px;
+				background-image: url("data:image/svg+xml;utf8,<svg width=\"6\" height=\"9\" viewBox=\"0 0 6 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 1.1855469 0 C 0.8823293 1.2499987e-07 0.57900352 0.10801547 0.34765625 0.32421875 C -0.11503829 0.75662532 -0.11503829 1.4582154 0.34765625 1.890625 L 3.1386719 4.5 L 0.34765625 7.109375 C -0.11503829 7.5417846 -0.11503829 8.2433817 0.34765625 8.6757812 C 0.81035079 9.1081908 1.560738 9.1081908 2.0234375 8.6757812 L 5.6523438 5.2832031 C 5.6812618 5.2561775 5.7090717 5.2282121 5.734375 5.1992188 C 5.9114983 4.9962655 6 4.7479485 6 4.5 C 6 4.4645788 5.9977554 4.4298213 5.9941406 4.3945312 C 5.9688373 4.147501 5.8547704 3.9059761 5.6523438 3.7167969 L 2.0234375 0.32421875 C 1.7920877 0.10801597 1.4887644 -1.2499987e-07 1.1855469 0 z \" fill=\"%23C69A4C\"/></svg>"); /* stylelint-disable-line */
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				content: "";
+				@include from(1025px) {
 					margin-left: auto;
-					background-image: url("data:image/svg+xml;utf8,<svg width=\"6\" height=\"9\" viewBox=\"0 0 6 9\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 1.1855469 0 C 0.8823293 1.2499987e-07 0.57900352 0.10801547 0.34765625 0.32421875 C -0.11503829 0.75662532 -0.11503829 1.4582154 0.34765625 1.890625 L 3.1386719 4.5 L 0.34765625 7.109375 C -0.11503829 7.5417846 -0.11503829 8.2433817 0.34765625 8.6757812 C 0.81035079 9.1081908 1.560738 9.1081908 2.0234375 8.6757812 L 5.6523438 5.2832031 C 5.6812618 5.2561775 5.7090717 5.2282121 5.734375 5.1992188 C 5.9114983 4.9962655 6 4.7479485 6 4.5 C 6 4.4645788 5.9977554 4.4298213 5.9941406 4.3945312 C 5.9688373 4.147501 5.8547704 3.9059761 5.6523438 3.7167969 L 2.0234375 0.32421875 C 1.7920877 0.10801597 1.4887644 -1.2499987e-07 1.1855469 0 z \" fill=\"%23C69A4C\"/></svg>"); /* stylelint-disable-line */
-					background-size: cover;
-					content: "";
+				}
+				@include tablet {
+					width: 44px;
+					height: 44px;
+					background-image: url("data:image/svg+xml;utf8,<svg width=\"9\" height=\"6\" viewBox=\"0 0 9 6\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M 1.1074219 0 C 0.82405303 0 0.54042203 0.11630898 0.32421875 0.34765625 C -0.10818782 0.81035079 -0.10818782 1.560738 0.32421875 2.0234375 L 3.7167969 5.6523438 C 4.1492064 6.1150333 4.8507936 6.1150333 5.2832031 5.6523438 L 8.6757812 2.0234375 C 9.1081808 1.560738 9.1081808 0.81035079 8.6757812 0.34765625 C 8.2433717 -0.11503729 7.5417846 -0.11503829 7.109375 0.34765625 L 4.5 3.1386719 L 1.890625 0.34765625 C 1.6744202 0.11630898 1.3907907 0 1.1074219 0 z \" fill=\"%23C69A4C\"/></svg>"); /* stylelint-disable-line */
+					background-size: 9px;
 				}
 			}
 		}

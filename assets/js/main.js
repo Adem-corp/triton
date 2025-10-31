@@ -468,6 +468,28 @@ function showMorePosts() {
 	});
 }
 
+function openBurger() {
+	const button = document.querySelector('.js-open-burger');
+	const menu = document.querySelector('#menu-main');
+
+	if (button) {
+		button.addEventListener('click', function (e) {
+			button.classList.toggle('open');
+			menu.classList.toggle('open');
+		});
+	}
+
+	if (menu) {
+		menu.addEventListener('click', function (e) {
+			if (!e.target.closest('a')) {
+				e.target.closest('li').classList.toggle('open');
+
+				slideToggle(e.target.closest('li').querySelector('.sub-menu'));
+			}
+		});
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
@@ -480,6 +502,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	initMainHeroSlider();
 	initProductsSlider();
 
+	openBurger();
 	setTelMask();
 	showMorePosts();
 	showSearchForm();

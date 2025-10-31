@@ -42,12 +42,6 @@ $option_social = get_field( 'social', 'option' );
 					<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-search' ); ?>"></use>
 				</svg>
 			</button>
-			<!--			TODO burger-->
-			<button class="square-btn header__burger-btn" type="button">
-				<svg width="22" height="18">
-					<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-burger' ); ?>"></use>
-				</svg>
-			</button>
 		</div>
 		<div class="header__col header__contacts">
 			<!--			TODO tel dropdown-->
@@ -67,6 +61,16 @@ $option_social = get_field( 'social', 'option' );
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
+		</div>
+		<div class="header__col header__burger">
+			<button class="square-btn burger-btn header__burger-btn js-open-burger" type="button">
+				<svg width="20" height="20" class="burger-btn__close">
+					<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-close' ); ?>"></use>
+				</svg>
+				<svg width="22" height="18" class="burger-btn__open">
+					<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-burger' ); ?>"></use>
+				</svg>
+			</button>
 		</div>
 	</div>
 	<form role="search" method="get" class="container search-form header__col header__search-form" action="<?php bloginfo( 'url' ); ?>" id="searchform">

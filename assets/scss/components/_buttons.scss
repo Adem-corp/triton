@@ -25,6 +25,24 @@
 	border: none;
 }
 
+.burger-btn {
+
+	&__close {
+		display: none;
+	}
+
+	&.open {
+
+		.burger-btn__close {
+			display: block;
+		}
+
+		.burger-btn__open {
+			display: none;
+		}
+	}
+}
+
 .submit-btn {
 	display: flex;
 	align-items: center;

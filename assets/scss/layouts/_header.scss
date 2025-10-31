@@ -11,16 +11,29 @@
 	&__container {
 		display: grid;
 		grid-template-columns: 1fr auto;
-		gap: 5px;
+		@include from(577px) {
+			gap: 5px;
+		}
+		@include tablet {
+			grid-template-columns: 1fr repeat(2, auto);
+		}
+		@include mob {
+			overflow: hidden;
+			background-color: var(--color-white);
+			border-radius: 10px;
+			padding-inline: 5px;
+		}
 	}
 
 	&__col {
 		display: flex;
 		align-items: center;
 		background-color: var(--color-white);
-		border-radius: 10px;
+		@include from(577px) {
+			border-radius: 10px;
+		}
 		@include mob {
-			padding-inline: 10px;
+			padding-inline: 0;
 		}
 	}
 
@@ -54,7 +67,7 @@
 		}
 	}
 
-	&__burger-btn {
+	&__burger {
 		@include from(1025px) {
 			display: none;
 		}
@@ -63,6 +76,10 @@
 	&__contacts {
 		gap: 10px;
 		padding: 10px 15px;
+		@include mob {
+			flex-direction: column;
+			gap: 5px;
+		}
 	}
 
 	&__tel {
@@ -73,7 +90,9 @@
 
 	&__social {
 		flex-wrap: wrap;
-		max-width: 50px;
+		@include from(577px) {
+			max-width: 50px;
+		}
 	}
 
 	&__search-form {
