@@ -22,8 +22,7 @@ $bg          = get_sub_field( 'bg' );
 			<?php if ( $subtitle ) : ?>
 				<div class="cta-a__subtitle"><?php echo wp_kses_post( $subtitle ); ?></div>
 			<?php endif; ?>
-			<!--			TODO modal-->
-			<button class="submit-btn cta-a__btn" type="button" data-fancybox>
+			<button class="submit-btn cta-a__btn" type="button" data-src="#modal-call" data-fancybox>
 				<span class="submit-btn__text"><?php echo esc_html( $btn_text ); ?></span>
 				<span class="submit-btn__icon">
 					<svg width="20" height="20">

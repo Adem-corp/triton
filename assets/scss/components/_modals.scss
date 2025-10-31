@@ -1,3 +1,72 @@
-.modal {
+@use "../helpers" as *;
 
+.modal {
+	display: none;
+	max-width: 600px;
+	color: #fff;
+	background: url(assets/images/modal-bg.jpg) center top / cover;
+	border-radius: 20px;
+	@include tablet {
+		padding: 35px;
+	}
+	@include mob {
+		padding-inline: 15px;
+	}
+
+	&--success {
+		flex-direction: column;
+		max-width: 100%;
+		@include mob {
+			width: 100%;
+		}
+	}
+
+	&__form {
+		display: grid;
+		gap: 10px;
+	}
+
+	&__title {
+		font-size: 48px;
+		font-family: var(--font-secondary), sans-serif;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	&__text {
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	&__policy {
+		margin-top: 10px;
+	}
+
+	&__btn {
+		margin: 20px auto 0;
+	}
+
+	&__close-btn {
+		width: auto;
+		margin-top: 20px;
+		margin-inline: auto;
+		color: #fff;
+	}
+
+	.f-button[data-fancybox-close] {
+		--f-close-button-width: 32px;
+		--f-close-button-height: 32px;
+		--f-close-button-color: var(--color-accent);
+		--f-close-button-bg: #222;
+		--f-close-button-hover-bg: #222;
+		--f-close-border-radius: 100%;
+		--f-button-svg-stroke-width: 3px;
+		top: 5px;
+		right: 5px;
+		box-sizing: border-box;
+
+		svg {
+			transform: scale(0.7);
+		}
+	}
 }

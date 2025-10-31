@@ -42,7 +42,7 @@ $video  = get_field( 'video' );
 											<?php if ( $item['subtitle'] ) : ?>
 												<div class="main-hero__subtitle"><?php echo wp_kses_post( $item['subtitle'] ); ?></div>
 											<?php endif; ?>
-											<button class="submit-btn main-hero__btn" type="button">
+											<button class="submit-btn main-hero__btn" type="button" data-src="#modal-call" data-fancybox>
 												<span class="submit-btn__text">ОФОРМИТЬ ЗАЯВКУ</span>
 												<span class="submit-btn__icon">
 													<svg width="20" height="20">

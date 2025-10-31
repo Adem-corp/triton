@@ -159,7 +159,7 @@ function sendForms() {
 				return;
 			}
 
-			form.classList.add('loading');
+			form.closest('.modal, section').classList.add('loading');
 
 			const response = fetch(adem_ajax.url, {
 				method: 'POST',
@@ -169,7 +169,7 @@ function sendForms() {
 				.then(data => {
 					Fancybox.close(true);
 					form.reset();
-					form.classList.remove('loading');
+					form.closest('.modal, section').classList.remove('loading');
 					submitBtm.innerHTML = submitBtnText;
 
 					//if (typeof (ym) === "function") ym(metrika_number, 'reachGoal', 'metrika_ID'); // TODO отправка целей в метрику. Удалить, если не используется.
