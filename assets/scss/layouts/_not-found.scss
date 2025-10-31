@@ -1,0 +1,9 @@
+@use "../helpers" as *;
+
+.not-found {
+	padding-block: 60px;
+	color: #fff;
+	@include mob {
+		padding-block: 30px;
+	}
+}

@@ -1,0 +1,21 @@
+@use "../helpers" as *;
+
+.search-block {
+	padding-block: 60px;
+	color: #fff;
+	@include mob {
+		padding-block: 30px;
+	}
+
+	&__title {
+		margin-bottom: 30px;
+		@include mob {
+			margin-bottom: 15px;
+		}
+	}
+
+	&__list {
+		display: grid;
+		gap: 10px;
+	}
+}

@@ -13,6 +13,10 @@ $option_social    = get_field( 'social', 'option' );
 $option_tel       = get_field( 'tel', 'option' );
 $option_email     = get_field( 'email', 'option' );
 $option_address   = get_field( 'address', 'option' );
+
+if ( is_search() || is_404() ) {
+	$footer_form = 1;
+}
 ?>
 
 </main>

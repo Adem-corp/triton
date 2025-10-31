@@ -10,6 +10,12 @@ $block_title = get_field( 'title' );
 $img         = get_field( 'img' );
 $bg          = get_field( 'bg' );
 $text        = get_field( 'text' );
+
+if ( is_404() ) {
+	$block_title = 'Страница не найдена';
+} elseif ( is_search() ) {
+	$block_title = 'Результаты поиска';
+}
 ?>
 
 <section class="hero">
