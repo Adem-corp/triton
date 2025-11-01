@@ -6,10 +6,11 @@
  * @since 1.0.0
  */
 
-$block_title  = get_sub_field( 'title' );
-$second_title = get_sub_field( 'second-title' );
-$subtitle     = get_sub_field( 'subtitle' );
-$categories   = get_sub_field( 'categories' );
+$block_title         = get_sub_field( 'title' );
+$second_title        = get_sub_field( 'second-title' );
+$subtitle            = get_sub_field( 'subtitle' );
+$categories          = get_sub_field( 'categories' );
+$option_catalog_link = get_field( 'catalog-link', 'option' );
 ?>
 
 <section class="section section--white prod-cat">
@@ -38,10 +39,11 @@ $categories   = get_sub_field( 'categories' );
 					);
 					?>
 				<?php endforeach; ?>
-				<!--				TODO повесить что-то на кнопку -->
-				<button class="catalog-btn prod-cat__btn" type="button">
-					<span class="catalog-btn__text">Скачать каталог продукции</span>
-				</button>
+				<?php if ( $option_catalog_link ) : ?>
+					<a href="<?php echo esc_url( $option_catalog_link ); ?>" class="catalog-btn prod-cat__btn" data-fancybox>
+						<span class="catalog-btn__text">Скачать каталог продукции</span>
+					</a>
+				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 	</div>

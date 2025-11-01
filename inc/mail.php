@@ -153,6 +153,8 @@ function adem_send_mail() {
 	$email    = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : null;
 	$message  = isset( $_POST['message'] ) ? sanitize_text_field( wp_unslash( $_POST['message'] ) ) : null;
 	$order    = isset( $_POST['order'] ) ? sanitize_text_field( wp_unslash( $_POST['order'] ) ) : null;
+	$color    = isset( $_POST['color'] ) ? sanitize_text_field( wp_unslash( $_POST['color'] ) ) : null;
+	$quantity = isset( $_POST['quantity'] ) ? sanitize_text_field( wp_unslash( $_POST['quantity'] ) ) : null;
 	$referer  = isset( $_POST['_wp_http_referer'] ) ? sanitize_text_field( wp_unslash( $_POST['_wp_http_referer'] ) ) : null;
 
 	$mail .= isset( $tel ) ? 'Телефон: <a href="tel:' . adem_clear_tel( $tel ) . '">' . $tel . '</a><br/>' : '';
@@ -160,6 +162,8 @@ function adem_send_mail() {
 	$mail .= isset( $position ) ? 'Должность: ' . $position . '<br/>' : '';
 	$mail .= isset( $message ) ? 'Сообщение: ' . $message . '<br/>' : '';
 	$mail .= ! empty( $order ) ? 'Заказ: ' . $order . '<br/>' : '';
+	$mail .= ! empty( $color ) ? 'Цвет: ' . $color . '<br/>' : '';
+	$mail .= ! empty( $quantity ) ? 'Количество: ' . $quantity . '<br/>' : '';
 	$mail .= isset( $referer ) ? 'Страница: ' . $referer . '<br/>' : '';
 
 	if ( ! empty( $_FILES['files'] ) ) {

@@ -33,6 +33,8 @@
 					</svg>
 				</span>
 		</button>
+		<input type="hidden" name="color">
+		<input type="hidden" name="quantity">
 		<?php adem_wp_nonce_field( 'Заявка', 'nonce' ); ?>
 	</form>
 </div>

@@ -490,6 +490,70 @@ function openBurger() {
 	}
 }
 
+function initProductSlider() {
+	const section = document.querySelector('.product');
+
+	if (!section) return;
+
+	const thumbs = new Swiper(section.querySelector('.product__thumbs .swiper'), {
+		slidesPerView: 4,
+		spaceBetween: 10,
+		watchSlidesProgress: true,
+		navigation: {
+			nextEl: section.querySelector('.product__arrow_next'),
+			prevEl: section.querySelector('.product__arrow_prev'),
+		},
+		breakpoints: {
+			577: {
+				direction: 'vertical',
+				slidesPerView: 4,
+			},
+		},
+	});
+
+	const main = new Swiper(section.querySelector('.product__slider'), {
+		slidesPerView: 1,
+		spaceBetween: 10,
+		thumbs: {
+			swiper: thumbs,
+		},
+	});
+}
+
+function setProductQuantity() {
+	const container = document.querySelector('.product__quantity');
+
+	if (!container) return;
+
+	container.addEventListener('click', function (e) {
+		const target = e.target.closest('button');
+		const input = container.querySelector('.product__q-input');
+
+		if (target) {
+			if ('plus' in target.dataset) {
+				input.value++;
+			} else if (input.value > 1) {
+				input.value--;
+			}
+		}
+	});
+}
+
+function setProductOrder() {
+	const button = document.querySelector('.js-product-btn');
+
+	if (!button) return;
+
+	button.addEventListener('click', function (e) {
+		const modal = document.getElementById(button.dataset.src.replace('#', ''));
+		const color = document.querySelector('input[name=color]:checked');
+		const quantity = document.querySelector('input[name=quantity]');
+
+		modal.querySelector('input[name=color]').value = color.value;
+		modal.querySelector('input[name=quantity]').value = quantity.value;
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function () {
 	Fancybox.bind();
 
@@ -500,6 +564,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	initCardsASlider();
 	initDocsSlider();
 	initMainHeroSlider();
+	initProductSlider();
 	initProductsSlider();
 
 	openBurger();
@@ -507,4 +572,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	showMorePosts();
 	showSearchForm();
 	sendForms();
+	setProductOrder();
+	setProductQuantity();
 });

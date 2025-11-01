@@ -85,3 +85,4 @@ require 'inc/svg.php';
 require 'inc/theme-functions.php';
 require 'inc/tiny-mce.php';
 require 'inc/traffic.php';
+require 'inc/yoast.php';
