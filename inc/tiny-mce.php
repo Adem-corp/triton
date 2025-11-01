@@ -56,7 +56,7 @@ function tmce_change_toolbar( $args ) {
 		),
 	);
 	$args['fontsize_formats'] = '6px 8px 10px 12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 32px 34px 36px';
-	$args['font_formats']     = 'Manrope=Manrope,sans-serif;Furore=Furore,sans-serif'; // TODO заменить на шрифты используемые в теме
+	$args['font_formats']     = 'Manrope=Manrope,sans-serif;BebasNeueCyrillic=BebasNeueCyrillic,sans-serif';
 	$args['style_formats']    = wp_json_encode( $style_formats );
 
 	return $args;
