@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-define( 'ADEM_THEME_VERSION', '1.0.0' );
+define( 'ADEM_THEME_VERSION', '1.0.1' );
 
 add_action( 'after_setup_theme', 'adem_theme_setup' );
 /**
