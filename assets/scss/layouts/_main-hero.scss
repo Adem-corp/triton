@@ -39,7 +39,7 @@
 	&__slide {
 		display: flex;
 		box-sizing: border-box;
-		height: 900px;
+		height: 750px;
 		max-height: 100vh;
 		padding-top: 125px;
 		padding-bottom: var(--slide-bottom-padding);
@@ -88,15 +88,9 @@
 	}
 
 	&__title {
-		font-size: 178px;
+		font-size: 120px;
 		font-family: var(--font-secondary), sans-serif;
 		line-height: 0.85;
-		@include laptop {
-			font-size: 150px;
-		}
-		@include laptop-sm {
-			font-size: 120px;
-		}
 		@include tablet {
 			font-size: 80px;
 		}
