@@ -539,6 +539,24 @@ function setProductQuantity() {
 	});
 }
 
+function setProductCoating() {
+	const container = document.querySelector('.product__info');
+
+	if (!container) return;
+
+	container.addEventListener('change', function (e) {
+		if ('coating' === e.target.name) {
+			const target = container.querySelector('[data-target=' + e.target.id + ']');
+
+			target.classList.add('active');
+
+			getSiblings(target).forEach(function (item) {
+				item.classList.remove('active');
+			})
+		}
+	});
+}
+
 function setProductOrder() {
 	const button = document.querySelector('.js-product-btn');
 
@@ -546,11 +564,23 @@ function setProductOrder() {
 
 	button.addEventListener('click', function (e) {
 		const modal = document.getElementById(button.dataset.src.replace('#', ''));
+		const coating = document.querySelector('input[name=coating]:checked');
 		const color = document.querySelector('input[name=color]:checked');
 		const quantity = document.querySelector('input[name=quantity]');
+		const params = document.querySelectorAll('input[id^=param]:checked');
+		let order = {};
 
-		modal.querySelector('input[name=color]').value = color.value;
-		modal.querySelector('input[name=quantity]').value = quantity.value;
+		if (coating) order['Покрытие'] = coating.value;
+		if (color) order['Цвет'] = color.value;
+		if (quantity) order['Количество'] = quantity.value;
+
+		if (params) {
+			params.forEach(function (input) {
+				order[input.name] = input.value;
+			});
+		}
+
+		modal.querySelector('input[name=order]').value = JSON.stringify(order);
 	});
 }
 
@@ -572,6 +602,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	showMorePosts();
 	showSearchForm();
 	sendForms();
+	setProductCoating();
 	setProductOrder();
 	setProductQuantity();
 });

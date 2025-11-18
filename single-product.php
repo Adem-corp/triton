@@ -10,7 +10,8 @@ get_header();
 
 $gallery             = get_field( 'gallery' );
 $description         = get_field( 'description' );
-$color               = get_field( 'color' );
+$coating             = get_field( 'coating' );
+$params              = get_field( 'params' );
 $price               = get_field( 'price' );
 $tab_txt             = get_field( 'txt-block' );
 $tab_chars           = get_field( 'chars' );
@@ -107,35 +108,71 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 					<?php if ( $description ) : ?>
 						<div class="product__description"><?php echo wp_kses_post( $description ); ?></div>
 					<?php endif; ?>
-					<?php if ( $color ) : ?>
-						<div class="product__block">
-							<div class="product__caption">Цвет</div>
-							<ul class="reset-list product__colors-list">
-								<?php foreach ( $color as $key => $item ) : ?>
-									<?php
-									if ( $item['color'] ) {
-										$color_bg = 'background-color: ' . $item['color'] . ';';
-									} else {
-										$color_bg = 'background-image: url(' . $item['img'] . ');';
-									}
-									?>
-									<li class="product__color">
-										<input id="<?php echo esc_attr( 'color_' . $key ); ?>" class="product__c-input" type="radio" name="color" value="<?php echo esc_attr( $item['name'] ); ?>">
-										<label class="product__c-label" for="<?php echo esc_attr( 'color_' . $key ); ?>">
-											<span class="product__c-preview" style="<?php echo esc_attr( $color_bg ); ?>"></span>
-											<span class="product__c-name"><?php echo esc_html( $item['name'] ); ?></span>
-										</label>
-									</li>
+					<?php if ( $coating ) : ?>
+						<?php if ( count( $coating ) > 1 ) : ?>
+							<div class="product__block">
+								<div class="product__caption">Тип покрытия</div>
+								<ul class="reset-list product__params-list">
+									<?php foreach ( $coating as $key => $item ) : ?>
+										<li class="product__param">
+											<input id="<?php echo esc_attr( 'coating_' . $key ); ?>" class="product__p-input" type="radio" name="coating" value="<?php echo esc_attr( $item['name'] ); ?>" <?php echo 0 === $key ? 'checked' : ''; ?>>
+											<label class="product__p-label" for="<?php echo esc_attr( 'coating_' . $key ); ?>">
+												<span class="product__p-name"><?php echo esc_html( $item['name'] ); ?></span>
+											</label>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						<?php endif; ?>
+						<?php if ( $coating[0]['color'] ) : ?>
+							<div class="product__block">
+								<div class="product__caption">Цвет</div>
+								<?php foreach ( $coating as $key_coating => $item ) : ?>
+									<ul class="reset-list product__colors-list <?php echo 0 === $key_coating ? 'active' : ''; ?>" data-target="<?php echo esc_attr( 'coating_' . $key_coating ); ?>">
+										<?php foreach ( $item['color'] as $key_color => $color ) : ?>
+											<?php
+											if ( $color['color'] ) {
+												$color_bg = 'background-color: ' . $color['color'] . ';';
+											} else {
+												$color_bg = 'background-image: url(' . $color['img'] . ');';
+											}
+											?>
+											<li class="product__color">
+												<input id="<?php echo esc_attr( 'color_' . $key_coating . '_' . $key_color ); ?>" class="product__c-input" type="radio" name="color" value="<?php echo esc_attr( $color['name'] ); ?>">
+												<label class="product__c-label" for="<?php echo esc_attr( 'color_' . $key_coating . '_' . $key_color ); ?>">
+													<span class="product__c-preview" style="<?php echo esc_attr( $color_bg ); ?>"></span>
+													<span class="product__c-name"><?php echo esc_html( $color['name'] ); ?></span>
+												</label>
+											</li>
+										<?php endforeach; ?>
+										<?php if ( $option_ral_link ) : ?>
+											<li>
+												<a href="<?php echo esc_url( $option_ral_link['url'] ); ?>" class="product__ral-link" target="<?php echo $option_ral_link['target'] ? esc_attr( $option_ral_link['target'] ) : '_self'; ?>">
+													<?php echo esc_html( $option_ral_link['title'] ); ?>
+												</a>
+											</li>
+										<?php endif; ?>
+									</ul>
 								<?php endforeach; ?>
-								<?php if ( $option_ral_link ) : ?>
-									<li>
-										<a href="<?php echo esc_url( $option_ral_link['url'] ); ?>" class="product__ral-link" target="<?php echo $option_ral_link['target'] ? esc_attr( $option_ral_link['target'] ) : '_self'; ?>">
-											<?php echo esc_html( $option_ral_link['title'] ); ?>
-										</a>
-									</li>
-								<?php endif; ?>
-							</ul>
-						</div>
+							</div>
+						<?php endif; ?>
+					<?php endif; ?>
+					<?php if ( $params ) : ?>
+						<?php foreach ( $params as $param_key => $item ) : ?>
+							<div class="product__block">
+								<div class="product__caption"><?php echo esc_html( $item['name'] ); ?></div>
+								<ul class="reset-list product__params-list">
+									<?php foreach ( $item['values'] as $key => $value ) : ?>
+										<li class="product__param">
+											<input id="<?php echo esc_attr( 'param_' . $param_key . '_' . $key ); ?>" class="product__p-input" type="radio" name="<?php echo esc_attr( $item['name'] ); ?>" value="<?php echo esc_attr( $value['value'] ); ?>" <?php echo 0 === $key ? 'checked' : ''; ?>>
+											<label class="product__p-label" for="<?php echo esc_attr( 'param_' . $param_key . '_' . $key ); ?>">
+												<span class="product__p-name"><?php echo esc_html( $value['value'] ); ?></span>
+											</label>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							</div>
+						<?php endforeach; ?>
 					<?php endif; ?>
 					<div class="product__block">
 						<div class="product__caption">Количество <span>(шт.)</span></div>

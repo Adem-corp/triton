@@ -144,6 +144,10 @@
 		flex-wrap: wrap;
 		gap: 10px;
 		align-items: flex-start;
+
+		&:not(.active) {
+			display: none;
+		}
 	}
 
 	&__color {
@@ -182,6 +186,35 @@
 	&__c-name {
 		display: block;
 		padding-block: 5px;
+	}
+
+	&__params-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		align-items: flex-start;
+	}
+
+	&__p-label {
+		display: block;
+		padding: 5px 8px;
+		background-color: #fff;
+		border: 1px solid var(--color-main);
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	&__p-input {
+		position: absolute;
+		z-index: -1;
+
+		&:checked {
+
+			+ .product__p-label {
+				color: #fff;
+				background-color: var(--color-main);
+			}
+		}
 	}
 
 	&__ral-link {
