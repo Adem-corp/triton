@@ -35,21 +35,23 @@ if ( is_404() ) {
 		<?php endif; ?>
 		<?php if ( $text ) : ?>
 			<div class="hero__body">
-				<figure class="hero__figure">
-					<?php
-					echo wp_kses_post(
-						adem_dynamic_thumbnail(
-							$img,
-							200,
-							200,
-							true,
-							array(
-								'class' => 'hero__img',
+				<?php if ( $img ) : ?>
+					<figure class="hero__figure">
+						<?php
+						echo wp_kses_post(
+							adem_dynamic_thumbnail(
+								$img,
+								200,
+								200,
+								true,
+								array(
+									'class' => 'hero__img',
+								)
 							)
-						)
-					);
-					?>
-				</figure>
+						);
+						?>
+					</figure>
+				<?php endif; ?>
 				<div class="hero__text"><?php echo wp_kses_post( $text ); ?></div>
 			</div>
 		<?php endif; ?>
