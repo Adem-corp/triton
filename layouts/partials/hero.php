@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-if ( is_category() ) {
+if ( is_category() || is_archive() ) {
 	$term_object = get_queried_object();
 	$acf_post_id = 'category_' . $term_object->term_id;
 } else {
