@@ -1,7 +1,7 @@
 @use "../helpers" as *;
 
 .header {
-	position: absolute;
+	position: fixed;
 	top: 15px;
 	right: 0;
 	left: 0;
@@ -29,6 +29,7 @@
 		display: flex;
 		align-items: center;
 		background-color: var(--color-white);
+		box-shadow: 0 0 10px 0 rgba(#18A9E1, 0.5);
 		@include from(577px) {
 			border-radius: 10px;
 		}
