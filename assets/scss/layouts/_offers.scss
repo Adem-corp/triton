@@ -17,14 +17,7 @@
 	&__title {
 		margin-bottom: 60px;
 		@include from(1025px) {
-			font-size: 100px !important;
 			line-height: 0.85;
-		}
-		@include from(1201px) {
-			font-size: 130px !important;
-		}
-		@include from(1441px) {
-			font-size: 178px !important;
 		}
 		@include tablet {
 			margin-bottom: 30px;

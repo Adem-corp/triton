@@ -42,9 +42,9 @@
 
 	&__title {
 		margin-top: 15px;
-		font-size: 118px;
+		font-size: 120px;
 		@include laptop-sm {
-			font-size: 90px;
+			font-size: 80px;
 		}
 		@include mob {
 			font-size: 60px;
