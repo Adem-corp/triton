@@ -7,12 +7,16 @@
  */
 
 $block_title = get_sub_field( 'title' );
+$word_bg     = get_sub_field( 'word-bg' );
 $left_text   = get_sub_field( 'left-text' );
 $right_text  = get_sub_field( 'right-text' );
 $cards       = get_sub_field( 'cards' );
 ?>
 
 <section class="section cards-d">
+	<?php if ( $word_bg ) : ?>
+		<div class="cards-d__word-bg"><?php echo esc_html( $word_bg ); ?></div>
+	<?php endif; ?>
 	<div class="container">
 		<?php if ( $block_title ) : ?>
 			<div class="cards-d__title"><?php echo wp_kses_post( $block_title ); ?></div>
