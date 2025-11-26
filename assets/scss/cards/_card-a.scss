@@ -59,6 +59,10 @@
 
 	&__caption {
 		font-size: 14px;
+
+		:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	&__slider {

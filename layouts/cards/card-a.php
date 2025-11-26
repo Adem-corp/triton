@@ -28,7 +28,7 @@ $gallery = get_field( 'gallery' );
 	<div class="card-a__body">
 		<a href="<?php the_permalink(); ?>" class="card-a__title"><?php the_title(); ?></a>
 		<?php if ( get_the_excerpt() ) : ?>
-			<div class="card-a__caption"><?php echo esc_html( get_the_excerpt() ); ?></div>
+			<div class="card-a__caption"><?php the_excerpt(); ?></div>
 		<?php endif; ?>
 	</div>
 	<?php if ( $gallery ) : ?>
