@@ -5,10 +5,16 @@
 	background-color: #fff;
 	border-radius: 20px;
 
-	&__img {
+	&__img-link {
 		display: block;
+		width: fit-content;
+		max-width: 100%;
 		margin-bottom: 20px;
 		margin-left: auto;
+	}
+
+	&__img {
+		display: block;
 	}
 
 	&__name {

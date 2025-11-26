@@ -10,16 +10,18 @@ $card = $args['card'];
 ?>
 
 <article class="card-c">
-	<?php
-	echo wp_get_attachment_image(
-		$card['img'],
-		'full',
-		false,
-		array(
-			'class' => 'card-c__img',
-		)
-	);
-	?>
+	<a href="<?php echo esc_url( wp_get_attachment_image_url( $card['img'], 'full' ) ); ?>" class="card-c__img-link" data-fancybox>
+		<?php
+		echo wp_get_attachment_image(
+			$card['img'],
+			'medium',
+			false,
+			array(
+				'class' => 'card-c__img',
+			)
+		);
+		?>
+	</a>
 	<?php if ( $card['name'] ) : ?>
 		<div class="card-c__name"><?php echo esc_html( $card['name'] ); ?></div>
 	<?php endif; ?>

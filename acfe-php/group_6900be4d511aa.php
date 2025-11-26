@@ -236,7 +236,7 @@ acf_add_local_field_group(array(
 							'name' => 'img',
 							'aria-label' => '',
 							'type' => 'image',
-							'instructions' => 'Изображение вставляется в полном размере',
+							'instructions' => '',
 							'required' => 0,
 							'conditional_logic' => 0,
 							'wrapper' => array(
@@ -329,7 +329,7 @@ acf_add_local_field_group(array(
 	'acfe_display_title' => '',
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1761657185,
+	'modified' => 1764156109,
 ));
 
 endif;
