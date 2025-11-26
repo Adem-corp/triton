@@ -58,8 +58,8 @@
 	}
 
 	&__btn {
-		@include from(1201px) {
-			grid-column: 2;
+		@include from(577px) {
+			aspect-ratio: auto;
 		}
 		@include mob {
 			grid-column: 1 / -1;

@@ -1,19 +1,14 @@
 @use "../helpers" as *;
 
 .prod-cat-card {
-	position: relative;
-	z-index: 1;
 	display: grid;
-	align-content: space-between;
+	gap: 10px;
 	padding: 25px 20px;
 	text-decoration: none;
 	background-color: #F0F0F0;
 	border-radius: 10px;
 	transition: all 0.3s ease-in-out;
 	counter-increment: prod-cat;
-	@include from(577px) {
-		aspect-ratio: 1 / 1;
-	}
 	@include from(769px) {
 		font-size: 20px;
 	}
@@ -24,59 +19,11 @@
 
 	&::before {
 		content: "/" counter(prod-cat, decimal-leading-zero);
-		@include mob {
-			position: absolute;
-			top: 25px;
-			left: 20px;
-		}
-	}
-
-	&:nth-child(3),
-	&:nth-child(8) {
-		@include from(1201px) {
-			grid-row: span 2;
-			grid-column: span 2;
-		}
-	}
-
-	&:nth-child(4) {
-		@include from(1201px) {
-			grid-column: 2;
-		}
-	}
-
-	&:nth-child(7) {
-		@include from(1201px) {
-			grid-column: 4;
-		}
-	}
-
-	&:nth-child(12) {
-		@include from(1201px) {
-			grid-column: 3;
-		}
 	}
 
 	&__img {
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: -1;
-		@include to(1200px) {
-			width: auto;
-			max-height: 20vw;
-		}
-		@include tablet {
-			max-height: 40vw;
-		}
-		@include tablet-sm {
-			max-height: 30vw;
-		}
-		@include mob {
-			position: static;
-			display: block;
-			margin: -25px -20px 0 auto;
-		}
+		display: block;
+		margin-inline: auto;
 	}
 
 	&__name {
