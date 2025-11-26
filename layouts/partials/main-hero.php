@@ -7,6 +7,7 @@
  */
 
 $slider = get_field( 'hero-sl' );
+$btn    = get_field( 'btn' );
 $video  = get_field( 'video' );
 ?>
 
@@ -42,14 +43,16 @@ $video  = get_field( 'video' );
 											<?php if ( $item['subtitle'] ) : ?>
 												<div class="main-hero__subtitle"><?php echo wp_kses_post( $item['subtitle'] ); ?></div>
 											<?php endif; ?>
-											<button class="submit-btn main-hero__btn" type="button" data-src="#modal-call" data-fancybox>
-												<span class="submit-btn__text">ОФОРМИТЬ ЗАЯВКУ</span>
-												<span class="submit-btn__icon">
+											<?php if ( $btn ) : ?>
+												<button class="submit-btn main-hero__btn" type="button" data-src="#modal-call" data-fancybox>
+													<span class="submit-btn__text">ОФОРМИТЬ ЗАЯВКУ</span>
+													<span class="submit-btn__icon">
 													<svg width="20" height="20">
 														<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-arrow-angle' ); ?>"></use>
 													</svg>
 												</span>
-											</button>
+												</button>
+											<?php endif; ?>
 										</div>
 									</div>
 								</div>

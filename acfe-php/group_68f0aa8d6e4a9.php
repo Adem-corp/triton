@@ -136,6 +136,28 @@ acf_add_local_field_group(array(
 			),
 		),
 		array(
+			'key' => 'field_6926dd99696c6',
+			'label' => 'Кнопка "Оформить заявку"',
+			'name' => 'btn',
+			'aria-label' => '',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+			'allow_in_bindings' => 0,
+			'ui_on_text' => 'Показать',
+			'ui_off_text' => 'Скрыть',
+			'ui' => 1,
+			'style' => '',
+		),
+		array(
 			'key' => 'field_68f0f41605d79',
 			'label' => 'Видео',
 			'name' => 'video',
@@ -313,7 +335,7 @@ acf_add_local_field_group(array(
 	'acfe_display_title' => '',
 	'acfe_meta' => '',
 	'acfe_note' => '',
-	'modified' => 1761140349,
+	'modified' => 1764154819,
 ));
 
 endif;
