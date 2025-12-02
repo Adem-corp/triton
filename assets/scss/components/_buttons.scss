@@ -107,9 +107,9 @@
 	border-radius: 10px;
 	@include from(577px) {
 		text-align: left;
-		background-image: url(assets/images/catalog-btn-bg.png);
+		background-image: linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0.2)), url(assets/images/catalog-btn-bg.jpg);
 		background-repeat: no-repeat;
-		background-position: right top;
+		background-position: center;
 		aspect-ratio: 1 / 1;
 	}
 	@include mob {
