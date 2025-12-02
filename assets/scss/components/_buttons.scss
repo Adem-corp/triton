@@ -110,6 +110,7 @@
 		background-image: linear-gradient(to top, rgba(#000, 0.2), rgba(#000, 0.2)), url(assets/images/catalog-btn-bg.jpg);
 		background-repeat: no-repeat;
 		background-position: center;
+		background-size: cover;
 		aspect-ratio: 1 / 1;
 	}
 	@include mob {
