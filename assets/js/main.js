@@ -8,12 +8,14 @@ function slideUp(target, duration = 500) {
 	target.offsetHeight;
 
 	requestAnimationFrame(() => {
-		target.style.overflow = 'hidden';
-		target.style.height = 0;
-		target.style.paddingTop = 0;
-		target.style.paddingBottom = 0;
-		target.style.marginTop = 0;
-		target.style.marginBottom = 0;
+		requestAnimationFrame(() => {
+			target.style.overflow = 'hidden';
+			target.style.height = 0;
+			target.style.paddingTop = 0;
+			target.style.paddingBottom = 0;
+			target.style.marginTop = 0;
+			target.style.marginBottom = 0;
+		});
 	});
 
 	window.setTimeout(() => {
@@ -47,13 +49,15 @@ function slideDown(target, duration = 500) {
 	target.style.boxSizing = 'border-box';
 
 	requestAnimationFrame(() => {
-		target.style.transitionProperty = "height, margin, padding";
-		target.style.transitionDuration = duration + 'ms';
-		target.style.height = height + 'px';
-		target.style.removeProperty('padding-top');
-		target.style.removeProperty('padding-bottom');
-		target.style.removeProperty('margin-top');
-		target.style.removeProperty('margin-bottom');
+		requestAnimationFrame(() => {
+			target.style.transitionProperty = "height, margin, padding";
+			target.style.transitionDuration = duration + 'ms';
+			target.style.height = height + 'px';
+			target.style.removeProperty('padding-top');
+			target.style.removeProperty('padding-bottom');
+			target.style.removeProperty('margin-top');
+			target.style.removeProperty('margin-bottom');
+		});
 	});
 
 	window.setTimeout(() => {
