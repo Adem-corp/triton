@@ -76,17 +76,17 @@
 	&__item {
 		display: flex;
 		flex-direction: column;
-		gap: 15px;
+		gap: 10px;
 		justify-content: space-between;
 		padding: 15px 10px;
 		color: var(--color-white);
 		font-weight: 500;
 		line-height: 1.25;
-		background-color: var(--color-main);
+		background-color: var(--color-accent);
 		border-radius: 10px;
 		counter-increment: features;
 		@include from(577px) {
-			min-height: 150px;
+			min-height: 120px;
 		}
 
 		&::before {
