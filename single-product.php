@@ -201,24 +201,29 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 				</div>
 			</div>
 			<?php if ( $tab_txt || $tab_chars || $tab_docs || $tab_delivery ) : ?>
+				<?php $active_tab = ''; ?>
 				<div class="product__body">
 					<ul class="reset-list product__tab-list js-tabs">
 						<?php if ( $tab_txt ) : ?>
 							<li class="product__tab active" data-tab="product-txt">Описание</li>
+							<?php $active_tab = 'product-txt'; ?>
 						<?php endif; ?>
 						<?php if ( $tab_chars ) : ?>
-							<li class="product__tab" data-tab="product-chars">Характеристики</li>
+							<li class="product__tab<?php echo ! $active_tab ? ' active' : ''; ?>" data-tab="product-chars">Характеристики</li>
+							<?php $active_tab = ! $active_tab ? 'product-chars' : $active_tab; ?>
 						<?php endif; ?>
 						<?php if ( $tab_docs ) : ?>
-							<li class="product__tab" data-tab="product-docs">Документация</li>
+							<li class="product__tab<?php echo ! $active_tab ? ' active' : ''; ?>" data-tab="product-docs">Документация</li>
+							<?php $active_tab = ! $active_tab ? 'product-docs' : $active_tab; ?>
 						<?php endif; ?>
 						<?php if ( $tab_delivery ) : ?>
-							<li class="product__tab" data-tab="product-delivery">Доставка и оплата</li>
+							<li class="product__tab<?php echo ! $active_tab ? ' active' : ''; ?>" data-tab="product-delivery">Доставка и оплата</li>
+							<?php $active_tab = ! $active_tab ? 'product-delivery' : $active_tab; ?>
 						<?php endif; ?>
 					</ul>
 					<div class="product__tabs-wrap">
 						<?php if ( $tab_txt ) : ?>
-							<div class="product__tab-container active" data-tab-container="product-txt">
+							<div class="product__tab-container<?php echo 'product-txt' === $active_tab ? ' active' : ''; ?>" data-tab-container="product-txt">
 								<?php foreach ( $tab_txt as $item ) : ?>
 									<div class="product__txt">
 										<?php if ( $item['name'] ) : ?>
@@ -232,7 +237,7 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 							</div>
 						<?php endif; ?>
 						<?php if ( $tab_chars ) : ?>
-							<div class="product__tab-container" data-tab-container="product-chars">
+							<div class="product__tab-container<?php echo 'product-chars' === $active_tab ? ' active' : ''; ?>" data-tab-container="product-chars">
 								<ul class="reset-list product__chars">
 									<?php foreach ( $tab_chars as $item ) : ?>
 										<li class="product__char-item">
@@ -248,7 +253,7 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 							</div>
 						<?php endif; ?>
 						<?php if ( $tab_docs ) : ?>
-							<div class="product__tab-container" data-tab-container="product-docs">
+							<div class="product__tab-container<?php echo 'product-docs' === $active_tab ? ' active' : ''; ?>" data-tab-container="product-docs">
 								<div class="product__docs">
 									<?php foreach ( $tab_docs as $item ) : ?>
 										<a href="<?php echo esc_url( $item['file']['url'] ); ?>" class="product__doc-item" data-fancybox="product-docs">
@@ -260,7 +265,7 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 							</div>
 						<?php endif; ?>
 						<?php if ( $tab_chars ) : ?>
-							<div class="product__tab-container product__delivery" data-tab-container="product-delivery"><?php echo wp_kses_post( $tab_delivery ); ?></div>
+							<div class="product__tab-container product__delivery<?php echo 'product-delivery' === $active_tab ? ' active' : ''; ?>" data-tab-container="product-delivery"><?php echo wp_kses_post( $tab_delivery ); ?></div>
 						<?php endif; ?>
 						<?php if ( $option_catalog_link ) : ?>
 							<a href="<?php echo esc_url( $option_catalog_link ); ?>" class="catalog-btn product__catalog-btn" data-fancybox>
