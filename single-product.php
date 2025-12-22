@@ -27,7 +27,7 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 			<h1 class="title product__title"><?php the_title(); ?></h1>
 			<div class="product__main">
 				<div class="product__gallery">
-					<div class="product__thumbs">
+					<div class="product__thumbs" <?php echo count( $gallery ) <= 1 ? 'style="display: none;"' : ''; ?>>
 						<div class="product__arrow product__arrow_prev">
 							<svg width="15" height="10">
 								<use xlink:href="<?php echo esc_url( get_template_directory_uri() . '/assets/images/sprite.svg#i-prod-arrow-prev' ); ?>"></use>
@@ -61,18 +61,6 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 					</div>
 					<div class="swiper product__slider">
 						<div class="swiper-wrapper">
-							<?php if ( get_the_post_thumbnail() ) : ?>
-								<a href="<?php echo esc_url( get_the_post_thumbnail_url( null, 'full' ) ); ?>" class="swiper-slide product__slide" data-fancybox="product">
-									<?php
-									the_post_thumbnail(
-										'post-thumbnail',
-										array(
-											'class' => 'product__img',
-										)
-									);
-									?>
-								</a>
-							<?php endif; ?>
 							<?php if ( $gallery ) : ?>
 								<?php foreach ( $gallery as $img_id ) : ?>
 									<a href="<?php echo esc_url( wp_get_attachment_image_url( $img_id, 'full' ) ); ?>" class="swiper-slide product__slide" data-fancybox="product">

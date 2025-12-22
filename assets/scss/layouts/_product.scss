@@ -36,13 +36,14 @@
 	}
 
 	&__gallery {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		display: flex;
 		background-color: var(--color-white);
 		border-radius: 10px;
 		@include from(577px) {
-			grid-template-rows: 520px;
-			grid-template-columns: 125px minmax(0, 1fr);
+			height: 520px;
+		}
+		@include mob {
+			flex-direction: column;
 		}
 	}
 
@@ -57,6 +58,8 @@
 	&__thumbs {
 		@include from(577px) {
 			display: grid;
+			flex-shrink: 0;
+			width: 125px;
 		}
 		@include mob {
 			display: flex;
