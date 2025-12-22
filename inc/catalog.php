@@ -123,8 +123,8 @@ add_action( 'init', 'catalog_rewrite_rules', 10 );
  * Register custom rewrite rules for catalog URLs.
  *
  * Handles:
- * - /catalog/category-name/product-name → single profile
- * - /catalog/category-name → brand taxonomy archive
+ * - /catalog/category-name/product-name → single product
+ * - /catalog/category-name → prod_cat taxonomy archive
  *
  * @return void
  */
@@ -173,7 +173,7 @@ function catalog_rewrite_rules( $flash = false ) {
 	}
 }
 
-add_action( 'create_catalog_category', 'create_term_flash_rewrite_rules', 10, 2 );
+add_action( 'create_prod_cat', 'create_term_flash_rewrite_rules', 10, 2 );
 function create_term_flash_rewrite_rules( $term_id, $taxonomy ) {
 	catalog_rewrite_rules( true );
 }
