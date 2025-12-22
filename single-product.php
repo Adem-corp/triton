@@ -35,18 +35,6 @@ $option_catalog_link = get_field( 'catalog-link', 'option' );
 						</div>
 						<div class="swiper">
 							<div class="swiper-wrapper">
-								<?php if ( get_the_post_thumbnail() ) : ?>
-									<div class="swiper-slide product__slide">
-										<?php
-										the_post_thumbnail(
-											'thumbnail',
-											array(
-												'class' => 'product__img',
-											)
-										);
-										?>
-									</div>
-								<?php endif; ?>
 								<?php if ( $gallery ) : ?>
 									<?php foreach ( $gallery as $img_id ) : ?>
 										<div class="swiper-slide product__slide">
