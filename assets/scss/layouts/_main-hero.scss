@@ -39,11 +39,11 @@
 	&__slide {
 		display: flex;
 		box-sizing: border-box;
-		height: 750px;
+		height: auto;
+		min-height: 590px;
 		padding-top: 125px;
 		padding-bottom: var(--slide-bottom-padding);
 		@include tablet {
-			height: auto;
 			min-height: calc(100vh - 30px);
 		}
 		@include mob {
